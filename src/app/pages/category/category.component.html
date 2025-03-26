@@ -66,7 +66,7 @@
         </button>
         <div
           [class]="filterVisible() ? 'left-0' : '-left-full'"
-          class="catergory-filteration sm-responsive fixed top-0 h-screen lg:hidden overflow-y-auto z-[9999] py-6 px-5 w-[300px] bg-white lg:static lg:bg-transparent lg:w-auto lg:p-[unset] lg:z-10 lg:h-auto duration-300 transition-all"
+          class="catergory-filteration sm-responsive fixed top-0 h-screen lg:hidden overflow-y-auto z-[99999999] py-6 px-5 w-[300px] bg-white lg:static lg:bg-transparent lg:w-auto lg:p-[unset] lg:z-10 lg:h-auto duration-300 transition-all"
         >
           <div class="flex justify-between items-center mb-5 lg:mb-8">
             <h4 class="text-text-color text-[1.25rem] font-semibold">
@@ -93,29 +93,29 @@
               </p-accordion-header>
               <p-accordion-content>
                 <p-tablist class="!flex">
-                  <p-tab value="0" (click)="categoryTitle('Men\'s Fashion')">
+                  <p-tab value="0" (click)="categoryTitle('All')">All</p-tab>
+                  <p-tab value="1" (click)="categoryTitle('Men\'s Fashion')">
                     Men's Clothes
                   </p-tab>
-                  <p-tab value="1" (click)="categoryTitle('Women\'s Fashion')">
+                  <p-tab value="2" (click)="categoryTitle('Women\'s Fashion')">
                     women's Clothes
                   </p-tab>
-                  <p-tab value="2" (click)="categoryTitle('Electronics')">
+                  <p-tab value="3" (click)="categoryTitle('Electronics')">
                     Electronics
                   </p-tab>
-                  <p-tab value="3" (click)="categoryTitle('Outfit')">
-                    Full Outfit
-                  </p-tab>
-                  <p-tab value="4" (click)="categoryTitle('Skirts')">
-                    Skirst
-                  </p-tab>
-                  <p-tab value="5" (click)="categoryTitle('Bags')">Bags</p-tab>
-                  <p-tab value="6" (click)="categoryTitle('Shoes')">
-                    Shoes
-                  </p-tab>
-                  <p-tab value="7" (click)="categoryTitle('Accessories')">
+                  <p-tab value="4" (click)="categoryTitle('Outfit')"
+                    >Full Outfit</p-tab
+                  >
+                  <p-tab value="5" (click)="categoryTitle('Skirts')"
+                    >Skirst</p-tab
+                  >
+                  <p-tab value="6" (click)="categoryTitle('Bags')">Bags</p-tab>
+                  <p-tab value="7" (click)="categoryTitle('Shoes')"
+                    >Shoes</p-tab
+                  >
+                  <p-tab value="8" (click)="categoryTitle('Accessories')">
                     Accessories
                   </p-tab>
-                  <p-tab value="8">Music</p-tab>
                 </p-tablist>
               </p-accordion-content>
             </p-accordion-panel>
@@ -147,29 +147,29 @@
               </p-accordion-header>
               <p-accordion-content>
                 <p-tablist>
-                  <p-tab value="0" (click)="categoryTitle('Men\'s Fashion')">
+                  <p-tab value="0" (click)="categoryTitle('All')">All</p-tab>
+                  <p-tab value="1" (click)="categoryTitle('Men\'s Fashion')">
                     Men's Clothes
                   </p-tab>
-                  <p-tab value="1" (click)="categoryTitle('Women\'s Fashion')">
+                  <p-tab value="2" (click)="categoryTitle('Women\'s Fashion')">
                     women's Clothes
                   </p-tab>
-                  <p-tab value="2" (click)="categoryTitle('Electronics')">
+                  <p-tab value="3" (click)="categoryTitle('Electronics')">
                     Electronics
                   </p-tab>
-                  <p-tab value="3" (click)="categoryTitle('Outfit')">
-                    Full Outfit
-                  </p-tab>
-                  <p-tab value="4" (click)="categoryTitle('Skirts')">
-                    Skirst
-                  </p-tab>
-                  <p-tab value="5" (click)="categoryTitle('Bags')">Bags</p-tab>
-                  <p-tab value="6" (click)="categoryTitle('Shoes')">
-                    Shoes
-                  </p-tab>
-                  <p-tab value="7" (click)="categoryTitle('Accessories')">
+                  <p-tab value="4" (click)="categoryTitle('Outfit')"
+                    >Full Outfit</p-tab
+                  >
+                  <p-tab value="5" (click)="categoryTitle('Skirts')"
+                    >Skirst</p-tab
+                  >
+                  <p-tab value="6" (click)="categoryTitle('Bags')">Bags</p-tab>
+                  <p-tab value="7" (click)="categoryTitle('Shoes')"
+                    >Shoes</p-tab
+                  >
+                  <p-tab value="8" (click)="categoryTitle('Accessories')">
                     Accessories
                   </p-tab>
-                  <p-tab value="8">Music</p-tab>
                 </p-tablist>
               </p-accordion-content>
             </p-accordion-panel>
