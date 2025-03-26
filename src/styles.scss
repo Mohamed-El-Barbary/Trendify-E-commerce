@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "primeicons/primeicons.css";
+@import 'ngx-toastr/toastr';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+:root {
+  --main-color: #8b5e35;
+  --second-color: #9b7e5c;
+  --text-color: #090f41;
+  --second-text: #9d9daa;
+  --bg-color: #f6f6f6;
+  --card-color: #ffffff;
+  --review-color: #ffc000;
+  --error-color: #d00439;
+  --footer-bg: #2e2e2e;
+  --header-style: "Hedvig Letters Serif", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light !important;
+  }
+}
+
+body {
+  font-family: "Poppins", serif;
+  background-color: var(--bg-color);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-btn{
+  @apply w-full bg-main-color text-white text-lg font-semibold py-2 rounded-full disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50;
+}
+
+.p-breadcrumb {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c49b67;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b88650;
+}

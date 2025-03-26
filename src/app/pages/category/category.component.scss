@@ -1,0 +1,158 @@
+.nav-tabs {
+  .p-tab-active {
+    background-color: var(--main-color) !important;
+    border: unset !important;
+    border-radius: 9999999px;
+  }
+
+  .p-tablist-tab-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 10px 20px !important;
+    border-radius: 99999999px;
+    border-style: unset !important;
+    background: #eee !important;
+    border-color: unset !important;
+    border-width: unset !important;
+  }
+
+  .p-tablist-active-bar {
+    display: none !important;
+  }
+
+  .p-tab {
+    color: #9d9daa !important;
+    padding: 10px 25px !important;
+    border-radius: 9999999px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .p-tab.p-tab-active {
+    color: white !important;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .p-tablist.row-tabs {
+      display: none !important;
+    }
+  }
+}
+
+.side-bar {
+  .p-tab-active {
+    background-color: unset !important;
+    border: unset !important;
+  }
+
+  .p-tablist-tab-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 10px !important;
+    border-radius: unset !important;
+    border-style: unset !important;
+    background: unset !important;
+    border-color: unset !important;
+    border-width: unset !important;
+  }
+
+  .p-tablist-active-bar {
+    display: none !important;
+  }
+
+  .p-tab {
+    color: #868484 !important;
+    padding: 10px 10px !important;
+    border-radius: unset !important;
+    font-size: 16px;
+    font-weight: 500;
+    border: unset !important;
+  }
+
+  .p-tab.p-tab-active {
+    color: #868484 !important;
+  }
+
+  .p-accordioncontent-content {
+    background-color: var(--bg-bg-color) !important;
+    border: unset !important;
+  }
+  .p-accordionpanel {
+    border: unset !important;
+  }
+}
+
+.side-bar-inner {
+  .p-tab-active {
+    background-color: unset !important;
+    border: unset !important;
+  }
+
+  .p-tablist-tab-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 10px !important;
+    border-radius: unset !important;
+    border-style: unset !important;
+    background: unset !important;
+    border-color: unset !important;
+    border-width: unset !important;
+  }
+
+  .p-tablist-active-bar {
+    display: none !important;
+  }
+
+  .p-tab {
+    color: #868484 !important;
+    padding: 10px 10px !important;
+    border-radius: unset !important;
+    font-size: 16px;
+    font-weight: 500;
+    border: unset !important;
+  }
+
+  .p-tab.p-tab-active {
+    color: #868484 !important;
+  }
+
+  .p-accordioncontent-content {
+    background-color: var(--bg-bg-color) !important;
+    border: unset !important;
+  }
+  .p-accordionpanel {
+    border: unset !important;
+  }
+}
+
+.product-panels {
+  .p-paginator-page-selected {
+    background-color: var(--main-color) !important;
+  }
+  .p-paginator-page.p-paginator-page-selected {
+    color: #fff !important;
+  }
+  .p-menu-overlay {
+    top: 45px !important;
+    right: -10px !important;
+    left: unset !important;
+  }
+  .sorted-by-price {
+    .p-button {
+      background-color: unset !important;
+      color: #151411 !important;
+      border: unset !important;
+      font-size: 18px;
+      font-weight: 500;
+
+    }
+  }
+}

@@ -1,0 +1,769 @@
+<main>
+  <section class="header mx-auto lg:px-4 xl:px-8 pt-48 pb-40">
+    <div
+      class="container mx-auto flex flex-col lg:flex-row justify-between items-center px-2 lg:px-4 xl:px-8"
+    >
+      <!-- Left Content -->
+      <div
+        class="w-full md:w-10/12 lg:w-1/2 relative max-w-screen-2xl order-2 lg:order-1"
+      >
+        <div class="main-title relative">
+          <h1 class="text-[50px] font-medium text-text-color">
+            Elevate Your Style with <br />
+            The Latest Trends.
+          </h1>
+          <div class="arrow">
+            <img
+              src="/images/arrow25.png"
+              class="absolute w-[225px] rotate-[1deg] font-bold -bottom-3 left-[145px]"
+              alt=""
+            />
+          </div>
+        </div>
+        <p class="mt-4 text-second-text text-lg max-w-[650px]">
+          Explore a curated collection of stylish, affordable fashion designed
+          to elevate your wardrobe. Discover the perfect blend of trend,
+          comfort, and individuality for your look.
+        </p>
+        <button class="mt-10 px-14 py-4 bg-main-color text-white rounded-full">
+          Download App
+        </button>
+        <div class="trangle-icon">
+          <img
+            src="/images/trangle1.svg"
+            class="!text-main-color absolute -bottom-24 right-7"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <!-- Right Image -->
+      <div
+        class="mb-10 md:mt-0 relative flex justify-center order-1 lg:order-2"
+      >
+        <div class="image">
+          <img
+            src="./images/spodnie-damskie-culotte-yerl.jpg"
+            alt="Fashion"
+            class="header-img rounded-tr-[70px] rounded-bl-[70px] rounded-tl-[170px] rounded-br-[170px] shadow-lg !h-[600px]"
+          />
+        </div>
+        <div class="trangle-icon">
+          <img
+            src="./images/trangle1.svg"
+            class="text-gray-800 absolute -top-[60px] right-52"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <section class="py-16 px-4">
+      <div class="max-w-7xl mx-auto text-center">
+        <h3 class="text-[26px] text-main-color font-semibold">Services</h3>
+        <h2 class="text-[40px] font-semibold text-text-color mt-1">
+          Benefits when using <br />
+          our services
+        </h2>
+      </div>
+
+      <div
+        class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto"
+      >
+        <div class="bg-white p-7 rounded-xl shadow-md">
+          <div
+            class="flex items-center justify-center w-14 h-14 mb-2 bg-[#f9f9f9] rounded-full"
+          >
+            <i class="fa-regular fa-lightbulb text-amber-800 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Inspiration</h3>
+          <p class="text-gray-600 mt-2">
+            Get inspired with our creative solutions designed to spark
+            innovation and bring your ideas to life.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-xl shadow-md">
+          <div
+            class="flex items-center justify-center w-14 h-14 mb-2 bg-[#f9f9f9] rounded-full"
+          >
+            <i class="fa-solid fa-headphones text-amber-800 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">
+            24/7 Customer Services
+          </h3>
+          <p class="text-gray-600 mt-2">
+            Our support team is available around the clock to assist you with
+            any inquiries or issues you may have.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-xl shadow-md">
+          <div
+            class="flex items-center justify-center w-14 h-14 mb-2 bg-[#f9f9f9] rounded-full"
+          >
+            <i class="fa-solid fa-truck-fast text-amber-800 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Express Shipping</h3>
+          <p class="text-gray-600 mt-2">
+            Experience lightning-fast delivery with our express shipping
+            service, ensuring your orders reach you in no time.
+          </p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="taps-sec max-w-7xl mx-auto py-20">
+    <mat-tab-group>
+      <mat-tab label="all">
+        <div
+          (click)="toastrshow()"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
+        >
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/fullOutfit.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                >
+                <span class="text-second-color text-xs">(500+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                5000
+                <span class="line-through text-second-text">1000 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/skirt.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                >
+                <span class="text-second-color text-xs">(500+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                800
+                <span class="line-through text-second-text">400 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/Bags.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.6</span
+                >
+                <span class="text-second-color text-xs">(200+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                300
+                <span class="line-through text-second-text">600 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/Accessories.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                >
+                <span class="text-second-color text-xs">(500+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                15000
+                <span class="line-through text-second-text">2000 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="skirts">
+        <div
+          (click)="toastrshow()"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-4 px-2 mt-10"
+        >
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/skirt.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                >
+                <span class="text-second-color text-xs">(500+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                800
+                <span class="line-through text-second-text">400 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="bags">
+        <div
+          (click)="toastrshow()"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
+        >
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/Bags.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.6</span
+                >
+                <span class="text-second-color text-xs">(200+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                300
+                <span class="line-through text-second-text">600 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="full-oufit">
+        <div
+          (click)="toastrshow()"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
+        >
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/fullOutfit.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                >
+                <span class="text-second-color text-xs">(500+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                5000
+                <span class="line-through text-second-text">1000 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Accessories">
+        <div
+          (click)="toastrshow()"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
+        >
+          <div class="bg-white p-2 rounded-2xl shadow-md">
+            <div class="image relative">
+              <img
+                src="./images/Accessories.png"
+                alt="Full Outfit"
+                class="rounded-xl w-full"
+              />
+              <span
+                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                >-50 %</span
+              >
+              <div
+                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+              >
+                <i class="fa-regular fa-heart text-main-color"></i>
+              </div>
+            </div>
+            <div class="crat-body mb-2 p-1">
+              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                Full Outfit
+              </h3>
+              <p class="text-sm text-text-color flex gap-2 items-center">
+                <span
+                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                >
+                <span class="text-second-color text-xs">(500+)</span>
+              </p>
+            </div>
+            <div class="cart-footer flex items-center relative p-1 pb-4">
+              <p class="font-bold text-main-color text-xl">
+                15000
+                <span class="line-through text-second-text">2000 EGP</span>
+              </p>
+              <div class="absolute right-0 text-3xl p-2">
+                <i
+                  class="fa-solid fa-square-plus text-main-color rounded-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+    <button
+      (click)="toastrshow()"
+      class="px-6 py-2 border-2 mt-10 border-main-color text-main-color rounded-full mx-auto flex items-center gap-2 transition duration-500 hover:bg-main-color hover:text-white"
+    >
+      <span>See All</span> <span class="material-icons">chevron_right</span>
+    </button>
+  </section>
+
+  <section
+    class="relative w-full h-[450px] mb-10 flex items-center justify-center text-center text-white"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/images/panner.png"
+        alt="Fashion"
+        class="w-full h-full object-cover object-[17px_10%]"
+      />
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl px-6">
+      <h1 class="text-xl md:text-5xl font-bold">
+        Discover Fashion That Speaks To You.
+      </h1>
+      <p class="mt-4 text-lg md:font-medium md:text-2xl">
+        Explore a range of high-quality, affordable furniture designed to
+        transform any room. Discover the perfect blend of style, comfort, and
+        functionality for your space.
+      </p>
+      <button
+        (click)="toastrshow()"
+        class="mt-6 px-6 py-3 border border-white rounded-full text-lg font-medium hover:bg-white hover:text-black transition"
+      >
+        See More
+      </button>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto py-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-[26px] text-main-color font-semibold">Testimonials</h3>
+      <h2 class="text-[40px] font-semibold text-text-color mt-1">
+        Benefits when using <br />
+        our services
+      </h2>
+    </div>
+
+    <owl-carousel-o
+      class="mt-8 !flex !gap-8 relative"
+      [options]="customOptions"
+    >
+      <!-- Static Testimonial 1 -->
+      <!-- <div class="flex gap-4"> -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-1.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Static Testimonial 2 -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-2.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Static Testimonial 3 -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-3.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- </div> -->
+
+      <!-- Static Testimonial 3 -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-4.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- </div> -->
+    </owl-carousel-o>
+  </section>
+
+  <section class="p-8 rounded-lg max-w-7xl w-full mx-auto py-20">
+    <div class="caption mb-5">
+      <h2 class="text-[40px] font-semibold text-text-color">Contact me</h2>
+      <p class="text-second-text text-lg font-medium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor
+      </p>
+    </div>
+    <form class="max-w-4xl">
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="mb-5">
+          <label
+            for="first-name"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >First Name</label
+          >
+          <input
+            type="text"
+            id="first-name"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="first-name"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            id="first-name"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="mb-5">
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="phone-number"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Phone Number</label
+          >
+          <input
+            type="tel"
+            id="base-input"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+      </div>
+      <div class="mb-5">
+        <label
+          for="selection"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Choose a topic</label
+        >
+        <input
+          type="text"
+          id="selection"
+          class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+        />
+      </div>
+      <div class="mb-5">
+        <label
+          for="base-input"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Message</label
+        >
+        <textarea
+          type="text"
+          id="base-input"
+          class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500 h-52"
+        ></textarea>
+      </div>
+
+      <div class="flex items-start mb-5">
+        <div class="flex items-center h-5">
+          <input
+            id="terms"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300"
+            required
+          />
+        </div>
+        <label for="terms" class="ms-2 text-sm font-medium text-gray-900"
+          >I agree with the
+          <a href="#" class="text-main-color hover:underline"
+            >terms and conditions</a
+          ></label
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="text-white bg-main-color focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-10 py-2.5 text-center"
+      >
+        Submit
+      </button>
+    </form>
+  </section>
+</main>

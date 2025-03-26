@@ -1,0 +1,184 @@
+<header class="">
+  <div class="h-[150px]"></div>
+  <div class="nav-breadcrumb !max-w-7xl px-8 2xl:p-0 mx-auto">
+    <p-breadcrumb class="" [model]="links">
+      <ng-template #item let-item>
+        @if (item.route) {
+        <a
+          [routerLink]="item.route"
+          class="p-breadcrumb-item-link flex items-center gap-2 px-3 py-2 text-white hover:opacity-80 transition duration-300"
+        >
+          @if (item.icon) {
+          <span [ngClass]="[item.icon, 'text-lg text-white']"></span>
+          }
+          <span class="text-main-color text-lg font-medium">
+            {{ item.label }}
+          </span>
+        </a>
+        } @else {
+        <span class="text-second-text font-medium text-lg">
+          {{ item.label }}
+        </span>
+        }
+      </ng-template>
+    </p-breadcrumb>
+  </div>
+</header>
+
+<main>
+  <section class="pb-20 pt-5">
+    <div class="sec-title text-center mb-20">
+      <h1 class="text-4xl font-bold text-text-color mb-4">Blog</h1>
+      <p class="text-sm text-[#667085] font-medium">
+        Make your best moments more stylish with our latest designs of clothing.
+      </p>
+    </div>
+    <div class="max-w-7xl mx-auto px-2 md:px-8 2xl:px-0">
+      <div
+        class="inner grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10"
+      >
+        <div class="bg-white shadow-lg overflow-hidden">
+          <img
+            src="/images/unsplash_vHVfpi3h5xk.png"
+            alt="Fashion Image"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-4 flex flex-col gap-4">
+            <div class="flex justify-between text-[#475467] text-sm">
+              <span>Fashion</span>
+              <span>Dec 30, 2022</span>
+            </div>
+            <h2 class="text-lg font-semibold">The perfect Shopify theme</h2>
+            <p class="text-gray-600">
+              Shopify is the second most popular <br />
+              eCommerce store builder in the world. You c...
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg overflow-hidden">
+          <img
+            src="/images/unsplash_vHVfpi3h5xk-1.png"
+            alt="Fashion Image"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-4 flex flex-col gap-4">
+            <div class="flex justify-between text-[#475467] text-sm">
+              <span>Fashion</span>
+              <span>Dec 30, 2022</span>
+            </div>
+            <h2 class="text-lg font-semibold">The perfect Shopify theme</h2>
+            <p class="text-gray-600">
+              Shopify is the second most popular <br />
+              eCommerce store builder in the world. You c...
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg overflow-hidden">
+          <img
+            src="/images/unsplash_vHVfpi3h5xk-2.png"
+            alt="Fashion Image"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-4 flex flex-col gap-4">
+            <div class="flex justify-between text-[#475467] text-sm">
+              <span>Fashion</span>
+              <span>Dec 30, 2022</span>
+            </div>
+            <h2 class="text-lg font-semibold">The perfect Shopify theme</h2>
+            <p class="text-gray-600">
+              Shopify is the second most popular <br />
+              eCommerce store builder in the world. You c...
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg overflow-hidden">
+          <img
+            src="/images/unsplash_vHVfpi3h5xk-4.png"
+            alt="Fashion Image"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-4 flex flex-col gap-4">
+            <div class="flex justify-between text-[#475467] text-sm">
+              <span>Fashion</span>
+              <span>Dec 30, 2022</span>
+            </div>
+            <h2 class="text-lg font-semibold">The perfect Shopify theme</h2>
+            <p class="text-gray-600">
+              Shopify is the second most popular <br />
+              eCommerce store builder in the world. You c...
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg overflow-hidden">
+          <img
+            src="/images/unsplash_vHVfpi3h5xk-5.png"
+            alt="Fashion Image"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-4 flex flex-col gap-4">
+            <div class="flex justify-between text-[#475467] text-sm">
+              <span>Fashion</span>
+              <span>Dec 30, 2022</span>
+            </div>
+            <h2 class="text-lg font-semibold">The perfect Shopify theme</h2>
+            <p class="text-gray-600">
+              Shopify is the second most popular <br />
+              eCommerce store builder in the world. You c...
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg overflow-hidden">
+          <img
+            src="/images/unsplash_vHVfpi3h5xk-3.png"
+            alt="Fashion Image"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-4 flex flex-col gap-4">
+            <div class="flex justify-between text-[#475467] text-sm">
+              <span>Fashion</span>
+              <span>Dec 30, 2022</span>
+            </div>
+            <h2 class="text-lg font-semibold">The perfect Shopify theme</h2>
+            <p class="text-gray-600">
+              Shopify is the second most popular <br />
+              eCommerce store builder in the world. You c...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pb-20 pt-10">
+    <div class="bg-white max-w-7xl mx-auto px-2 md:px-8 2xl:px-0 py-24">
+      <div class="inner flex max-w-xl mx-auto text-center flex-col gap-6">
+        <div class="icon text-main-color text-5xl">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="descrption">
+          <h3 class="text-base text-text-color font-medium mb-3">
+            SIGN UP FOR TEEMATE STYLE NEWS
+          </h3>
+          <p class="text-sm text-[#667085] font-medium">
+            Get 15% off your first purchaxse! Plus, be the first to know about
+            sales, new product launches and exclusive offers!
+          </p>
+        </div>
+        <div class="subscribe">
+          <form action="" class="flex flex-col sm:flex-row gap-2">
+            <input
+              type="email"
+              class="w-full px-4 py-2 text-second-color bg-bg-color rounded"
+              placeholder="Enter your email"
+            />
+            <button
+              type="submit"
+              class="w-full sm:w-auto px-4 py-2 text-white bg-main-color rounded"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,936 @@
+<header>
+  <div class="container max-w-7xl px-8 2xl:px-0">
+    <div class="header-content flex absolute top-1/2 -translate-y-1/2">
+      <div class="caption max-w-xl text-white">
+        <h1 class="text-[35px] sm:text-[50px] font-semibold mb-8 relative">
+          Elevate Your Home with <br />
+          Stylish Furniture
+          <img
+            src="/images/arrow25.png"
+            class="absolute w-[180px] rotate-[2deg] font-semibold -bottom-3 left-[70px] sm:left-[135px]"
+            alt=""
+          />
+        </h1>
+        <p class="text:base sm:text-lg font-medium mb-10">
+          Explore a range of high-quality, affordable furniture designed to
+          transform any room. Discover the perfect blend of style, comfort,
+          <br />
+          and functionality for your space.
+        </p>
+        <button
+          class="text-xl px-20 py-3 bg-main-color relative rounded-full mb-28"
+        >
+          Shop Now
+          <img
+            src="/images/home-image/download.svg"
+            class="absolute w-[270px] rotate-[40deg] font-semibold top-[158%] -left-8 sm:left-[100px]"
+            alt=""
+          />
+        </button>
+        <div class="rating absolute right-6 sm:right-24">
+          <div class="top-rating flex gap-2">
+            <span class="text-[28px] font-bold">4.8 </span>
+            <span class="flex items-center">|</span>
+            <ul class="flex gap-1 items-center">
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star-half-stroke"></i></li>
+            </ul>
+          </div>
+          <div class="bottom-rating text-xl">150k Total Review</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="category py-20 px-20 relative">
+    <swiper-container
+      #categorySwiper
+      [breakpoints]="breakpoints"
+      class="mySwiper flex justify-center items-center"
+      pagination-clickable="true"
+      pagination="false"
+      loop="true"
+      autoplay="true"
+      speed="300"
+    >
+      @for (category of categoryList; track $index) {
+      <swiper-slide class="flex justify-center">
+        <img
+          [src]="category.image"
+          class="h-[100px] w-[100px] rounded-full"
+          [alt]="category.name"
+          aria-label="category.name"
+        />
+      </swiper-slide>
+      }
+    </swiper-container>
+    <div
+      class="z-50 buttons absolute flex px-5 xl:px-10 justify-between w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-4"
+    >
+      <button
+        (click)="categorySlider('prev')"
+        type="button"
+        class="slider-prev w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center"
+        aria-label="Previous Slide"
+      >
+        <i class="fa-solid fa-chevron-left text-main-color"></i>
+      </button>
+
+      <button
+        (click)="categorySlider('next')"
+        type="button"
+        class="slider-next w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center"
+        aria-label="Next Slide"
+      >
+        <i class="fa-solid fa-chevron-right text-main-color"></i>
+      </button>
+    </div>
+  </section>
+
+  <section class="slider-panner relative pb-20">
+    <swiper-container
+      #pannerSwiper
+      class="mySwiper panner-home-swiper h-[220px] lg:h-[500px]"
+      pagination-clickable="true"
+      loop
+    >
+      <swiper-slide class="">
+        <div class="">
+          <figure>
+            <img
+              src="/images/home-image/homeslider.jpeg"
+              class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full object-cover h-full"
+              alt=""
+            />
+          </figure>
+          <figcaption class="container max-w-7xl px-16 md:px-16">
+            <div class="absolute z-50 top-1/2 -translate-y-1/2 text-white">
+              <h2 class="text-[44px] font-semibold">Upgrade your Style</h2>
+              <p class="max-w-sm text-[32px] font-medium mb-5">
+                up to 50% off on all clothing and accessories!
+              </p>
+              <button class="text-xl px-10 py-3 bg-main-color rounded-lg">
+                Shop Now
+              </button>
+            </div>
+          </figcaption>
+        </div>
+
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+        ></div>
+      </swiper-slide>
+      <swiper-slide>
+        <img
+          src="/images/home-image/img10.jpg"
+          class="w-full object-contain lg:object-cover h-full"
+          alt=""
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+        ></div>
+      </swiper-slide>
+      <swiper-slide>
+        <img
+          src="/images/home-image/img8.jpg"
+          class="w-full object-contain lg:object-cover h-full"
+          alt=""
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+        ></div>
+      </swiper-slide>
+      <swiper-slide>
+        <img
+          src="/images/home-image/img11.jpg"
+          class="w-full object-contain lg:object-cover h-full"
+          alt=""
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+        ></div>
+      </swiper-slide>
+    </swiper-container>
+    <div
+      class="z-50 buttons absolute flex px-5 xl:px-12 justify-between w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-4"
+    >
+      <button
+        type="button"
+        (click)="pannerSlider('prev')"
+        class="slider-prev w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center"
+        aria-label="prev Slide"
+      >
+        <i class="fa-solid fa-chevron-left text-main-color"></i>
+      </button>
+
+      <button
+        type="button"
+        (click)="pannerSlider('next')"
+        class="slider-next w-[40px] h-[40px] rounded-full bg-white flex items-center justify-center"
+        aria-label="nextious Slide"
+      >
+        <i class="fa-solid fa-chevron-right text-main-color"></i>
+      </button>
+    </div>
+  </section>
+
+  <section class="flash-sale max-w-7xl mx-auto pb-40">
+    <div class="sec-title text-center">
+      <h2 class="text-[32px] text-main-color font-normal font-header-style">
+        flash Sale
+      </h2>
+      <p class="text-[40px] font-semibold text-text-color">
+        Grab Them Before They're Gone!
+      </p>
+    </div>
+    <div class="">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 xl:px-0 mt-10"
+      >
+        @for (flashProd of allProducts.slice(24, 28); track $index) {
+        <div
+          [routerLink]="['/products/details', flashProd._id]"
+          class="bg-white p-2 rounded-2xl shadow-md cursor-pointer"
+        >
+          <div class="image relative">
+            <img
+              [src]="flashProd.imageCover"
+              [alt]="flashProd.title"
+              class="rounded-xl w-full h-[280px] object-contain bg-[#F1F1F1]"
+              aria-label="flashProd.title"
+            />
+            <span
+              class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+              >-20 %</span
+            >
+            <div
+              (click)="updateProductWishlist(flashProd._id)"
+              (click)="preventPropagation($event)"
+              aria-label="wishlist"
+              role="button"
+              class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+            >
+              @if (wishlistService.wishlist().includes(flashProd._id)) {
+              <i class="fa-solid fa-heart text-main-color"></i>
+              } @else {
+              <i class="fa-regular fa-heart text-main-color"></i>
+              }
+            </div>
+          </div>
+          <div class="crat-body mb-2 p-1">
+            <h3
+              class="text-2xl font-medium text-text-color mt-3 mb-1 max-w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block"
+            >
+              {{ flashProd.title }}
+            </h3>
+            <p class="text-sm text-text-color flex gap-2 items-center">
+              <span
+                ><i class="fa-solid fa-star text-yellow-400"></i>
+                {{ flashProd.ratingsAverage }}</span
+              >
+              <span class="text-second-color text-xs">(500+)</span>
+            </p>
+          </div>
+          <div class="cart-footer flex items-center relative p-1 pb-4">
+            <p class="font-bold text-main-color text-xl">
+              {{ (flashProd.price * 80) / 100 }}
+              <span class="line-through text-second-text">{{
+                flashProd.price
+              }}</span>
+            </p>
+            <div
+              (click)="addProductToCart(flashProd._id)"
+              (click)="preventPropagation($event)"
+              class="absolute right-0 text-3xl p-2"
+            >
+              @if (cartLoading.cartLoading[flashProd._id]) {
+              <span
+                class="w-[30px] h-[30px] flex items-center justify-center text-white bg-main-color rounded-lg"
+              >
+                <i
+                  class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse text-lg"
+                ></i>
+              </span>
+              }@else{
+              <i class="fa-solid fa-square-plus text-main-color rounded-lg"></i>
+              }
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    <button
+      routerLink="/products"
+      (click)="navColorService.updatePath('/products')"
+      class="px-6 py-2 border-2 mt-10 border-main-color text-main-color rounded-full mx-auto flex items-center gap-2 transition duration-500 hover:bg-main-color hover:text-white"
+    >
+      <span>See All</span> <span class="material-icons">chevron_right</span>
+    </button>
+  </section>
+
+  <section class="new-collection max-w-7xl mx-auto pb-40">
+    <div class="sec-title text-center mb-10">
+      <h2 class="text-[32px] text-main-color font-normal font-header-style">
+        New Collection
+      </h2>
+      <p class="text-[40px] font-semibold text-text-color">
+        Check the new Collection
+      </p>
+    </div>
+    <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-5 px-2 xl:px-0">
+      <div class="relative overflow-hidden">
+        <img
+          src="/images/home-image/unsplash_mB-SwZFP1kQ.png"
+          alt=""
+          class="h-[800px] rounded-3xl"
+        />
+        <div
+          class="text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50"
+        >
+          <h3 class="text-[50px] font-semibold">Shoes</h3>
+          <p class="text-[32px] font-medium">UP TO 50%OFF</p>
+        </div>
+        <div class="absolute inset-0 bg-black/50 rounded-3xl"></div>
+      </div>
+      <div class="flex flex-col gap-5">
+        <div class="relative">
+          <div>
+            <img
+              src="/images/home-image/34cd5ed275ff0a388e520187d0961753.jpeg"
+              class="h-[390px] w-full object-cover rounded-3xl"
+              alt=""
+            />
+          </div>
+          <div
+            class="text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50"
+          >
+            <h3 class="text-[50px] font-semibold">Bags</h3>
+            <p class="text-[32px] font-medium">UP TO 50%OFF</p>
+          </div>
+          <div class="absolute inset-0 bg-black/50 rounded-3xl"></div>
+        </div>
+        <div class="relative">
+          <div>
+            <img
+              src="/images/home-image/e6f701d0f5d5597fa8447507f4dce558.jpeg"
+              alt=""
+              class="h-[390px] w-full object-cover rounded-3xl"
+            />
+          </div>
+          <div
+            class="text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50"
+          >
+            <h3 class="text-[50px] font-semibold">Accessories</h3>
+            <p class="text-[32px] font-medium">UP TO 50%OFF</p>
+          </div>
+          <div class="absolute inset-0 bg-black/50 rounded-3xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-home max-w-7xl mx-auto pb-40">
+    <div class="sec-title text-center mb-10">
+      <h2 class="text-[32px] text-main-color font-normal font-header-style">
+        Products
+      </h2>
+      <p class="text-[40px] font-semibold text-text-color">
+        Best Selling Product
+      </p>
+    </div>
+    <div class="nav-tabs max-w-7xl mx-auto relative">
+      <div class="card">
+        <p-tabs value="0">
+          <p-tablist
+            class="row-tabs !overflow-x-auto !scrollbar-hide !whitespace-nowrap"
+          >
+            <p-tab value="0" (click)="categoryTitle('Men\'s Fashion')">
+              Men's Clothes
+            </p-tab>
+            <p-tab value="1" (click)="categoryTitle('Women\'s Fashion')">
+              women's Clothes
+            </p-tab>
+            <p-tab value="2" (click)="categoryTitle('Electronics')">
+              Electronics
+            </p-tab>
+          </p-tablist>
+          <p-tabpanels class="product-panels !bg-bg-color">
+            <p-tabpanel value="0">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+              >
+                @for (product of allProducts.slice(26,30); track product._id) {
+                @if (product.category.name === "Men's Fashion") {
+                <div
+                  [routerLink]="['details', product._id]"
+                  class="bg-white p-2 rounded-2xl shadow-md cursor-pointer"
+                >
+                  <div class="image relative">
+                    <img
+                      [src]="product.imageCover"
+                      [alt]="product.title"
+                      class="rounded-xl w-full h-[280px] object-contain bg-[#F1F1F1]"
+                      aria-label="product.title"
+                    />
+                    <span
+                      class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                      >-20 %</span
+                    >
+                    <div
+                      (click)="preventPropagation($event)"
+                      (click)="updateProductWishlist(product._id)"
+                      aria-label="wishlist"
+                      role="button"
+                      class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                    >
+                      @if (wishlistService.wishlist().includes(product._id)) {
+                      <i class="fa-solid fa-heart text-main-color"></i>
+                      } @else {
+                      <i class="fa-regular fa-heart text-main-color"></i>
+                      }
+                    </div>
+                  </div>
+                  <div class="crat-body mb-2 p-1">
+                    <h3
+                      class="text-2xl font-medium text-text-color mt-3 mb-1 max-w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block"
+                    >
+                      {{ product.title }}
+                    </h3>
+                    <p class="text-sm text-text-color flex gap-2 items-center">
+                      <span
+                        ><i class="fa-solid fa-star text-yellow-400"></i>
+                        {{ product.ratingsAverage }}</span
+                      >
+                      <span class="text-second-color text-xs">(500+)</span>
+                    </p>
+                  </div>
+                  <div class="cart-footer flex items-center relative p-1 pb-4">
+                    <p class="font-bold text-main-color text-xl">
+                      {{ (product.price * 80) / 100 }}
+                      <span class="line-through text-second-text">{{
+                        product.price
+                      }}</span>
+                    </p>
+                    <div
+                      (click)="addProductToCart(product._id)"
+                      (click)="preventPropagation($event)"
+                      class="absolute right-0 text-3xl p-2"
+                    >
+                      @if (cartLoading.cartLoading[product._id]) {
+                      <span
+                        class="w-[30px] h-[30px] flex items-center justify-center text-white bg-main-color rounded-lg"
+                      >
+                        <i
+                          class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse text-lg"
+                        ></i>
+                      </span>
+                      }@else{
+                      <i
+                        class="fa-solid fa-square-plus text-main-color rounded-lg"
+                      ></i>
+                      }
+                    </div>
+                  </div>
+                </div>
+                }}
+              </div>
+            </p-tabpanel>
+            <p-tabpanel value="1">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+              >
+                @for (product of allProducts.slice(4,8); track product._id) {
+                @if (product.category.name === "Women's Fashion") {
+                <div
+                  [routerLink]="['details', product._id]"
+                  class="bg-white p-2 rounded-2xl shadow-md cursor-pointer"
+                >
+                  <div class="image relative">
+                    <img
+                      [src]="product.imageCover"
+                      [alt]="product.title"
+                      class="rounded-xl w-full h-[280px] object-contain bg-[#F1F1F1]"
+                      aria-label="product.title"
+                    />
+                    <span
+                      class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                      >-20 %</span
+                    >
+                    <div
+                      (click)="preventPropagation($event)"
+                      (click)="updateProductWishlist(product._id)"
+                      aria-label="wishlist"
+                      role="button"
+                      class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                    >
+                      @if (wishlistService.wishlist().includes(product._id)) {
+                      <i class="fa-solid fa-heart text-main-color"></i>
+                      } @else {
+                      <i class="fa-regular fa-heart text-main-color"></i>
+                      }
+                    </div>
+                  </div>
+                  <div class="crat-body mb-2 p-1">
+                    <h3
+                      class="text-2xl font-medium text-text-color mt-3 mb-1 max-w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block"
+                    >
+                      {{ product.title }}
+                    </h3>
+                    <p class="text-sm text-text-color flex gap-2 items-center">
+                      <span
+                        ><i class="fa-solid fa-star text-yellow-400"></i>
+                        {{ product.ratingsAverage }}</span
+                      >
+                      <span class="text-second-color text-xs">(500+)</span>
+                    </p>
+                  </div>
+                  <div class="cart-footer flex items-center relative p-1 pb-4">
+                    <p class="font-bold text-main-color text-xl">
+                      {{ (product.price * 80) / 100 }}
+                      <span class="line-through text-second-text">{{
+                        product.price
+                      }}</span>
+                    </p>
+                    <div
+                      (click)="addProductToCart(product._id)"
+                      (click)="preventPropagation($event)"
+                      class="absolute right-0 text-3xl p-2"
+                    >
+                      @if (cartLoading.cartLoading[product._id]) {
+                      <span
+                        class="w-[30px] h-[30px] flex items-center justify-center text-white bg-main-color rounded-lg"
+                      >
+                        <i
+                          class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse text-lg"
+                        ></i>
+                      </span>
+                      }@else{
+                      <i
+                        class="fa-solid fa-square-plus text-main-color rounded-lg"
+                      ></i>
+                      }
+                    </div>
+                  </div>
+                </div>
+                }}
+              </div>
+            </p-tabpanel>
+            <p-tabpanel value="2">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+              >
+                @for (product of allProducts.slice(36,40); track product._id) {
+                @if (product.category.name === "Electronics") {
+                <div
+                  [routerLink]="['details', product._id]"
+                  class="bg-white p-2 rounded-2xl shadow-md cursor-pointer"
+                >
+                  <div class="image relative">
+                    <img
+                      [src]="product.imageCover"
+                      [alt]="product.title"
+                      class="rounded-xl w-full h-[280px] object-contain bg-[#F1F1F1]"
+                      aria-label="product.title"
+                    />
+                    <span
+                      class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                      >-20 %</span
+                    >
+                    <div
+                      (click)="preventPropagation($event)"
+                      (click)="updateProductWishlist(product._id)"
+                      aria-label="wishlist"
+                      role="button"
+                      class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                    >
+                      @if (wishlistService.wishlist().includes(product._id)) {
+                      <i class="fa-solid fa-heart text-main-color"></i>
+                      } @else {
+                      <i class="fa-regular fa-heart text-main-color"></i>
+                      }
+                    </div>
+                  </div>
+                  <div class="crat-body mb-2 p-1">
+                    <h3
+                      class="text-2xl font-medium text-text-color mt-3 mb-1 max-w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block"
+                    >
+                      {{ product.title }}
+                    </h3>
+                    <p class="text-sm text-text-color flex gap-2 items-center">
+                      <span
+                        ><i class="fa-solid fa-star text-yellow-400"></i>
+                        {{ product.ratingsAverage }}</span
+                      >
+                      <span class="text-second-color text-xs">(500+)</span>
+                    </p>
+                  </div>
+                  <div class="cart-footer flex items-center relative p-1 pb-4">
+                    <p class="font-bold text-main-color text-xl">
+                      {{ (product.price * 80) / 100 }}
+                      <span class="line-through text-second-text">{{
+                        product.price
+                      }}</span>
+                    </p>
+                    <div
+                      (click)="addProductToCart(product._id)"
+                      (click)="preventPropagation($event)"
+                      class="absolute right-0 text-3xl p-2"
+                    >
+                      @if (cartLoading.cartLoading[product._id]) {
+                      <span
+                        class="w-[30px] h-[30px] flex items-center justify-center text-white bg-main-color rounded-lg"
+                      >
+                        <i
+                          class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse text-lg"
+                        ></i>
+                      </span>
+                      }@else{
+                      <i
+                        class="fa-solid fa-square-plus text-main-color rounded-lg"
+                      ></i>
+                      }
+                    </div>
+                  </div>
+                </div>
+                } }
+              </div>
+            </p-tabpanel>
+          </p-tabpanels>
+        </p-tabs>
+      </div>
+    </div>
+    <button
+      routerLink="/products"
+      (click)="navColorService.updatePath('/products')"
+      class="px-6 py-2 border-2 mt-10 border-main-color text-main-color rounded-full mx-auto flex items-center gap-2 transition duration-500 hover:bg-main-color hover:text-white"
+    >
+      <span>See All</span> <span class="material-icons">chevron_right</span>
+    </button>
+  </section>
+
+  <section class="top-product max-w-7xl mx-auto pb-40">
+    <div class="sec-title text-center mb-10">
+      <h2 class="text-[32px] text-main-color font-normal font-header-style">
+        Top Products
+      </h2>
+      <p class="text-[40px] font-semibold text-text-color">
+        Top Picks for You!"
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 xl:px-0 mt-10"
+    >
+      @for (product of allProducts.slice(20,28); track product._id) {
+      <div
+        [routerLink]="['details', product._id]"
+        class="bg-white p-2 rounded-2xl shadow-md cursor-pointer"
+      >
+        <div class="image relative">
+          <img
+            [src]="product.imageCover"
+            [alt]="product.title"
+            class="rounded-xl w-full h-[280px] object-contain bg-[#F1F1F1]"
+            aria-label="product.title"
+          />
+          <span
+            class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+            >-20 %</span
+          >
+          <div
+            (click)="preventPropagation($event)"
+            (click)="updateProductWishlist(product._id)"
+            aria-label="wishlist"
+            role="button"
+            class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+          >
+            @if (wishlistService.wishlist().includes(product._id)) {
+            <i class="fa-solid fa-heart text-main-color"></i>
+            } @else {
+            <i class="fa-regular fa-heart text-main-color"></i>
+            }
+          </div>
+        </div>
+        <div class="crat-body mb-2 p-1">
+          <h3
+            class="text-2xl font-medium text-text-color mt-3 mb-1 max-w-full overflow-hidden whitespace-nowrap text-ellipsis inline-block"
+          >
+            {{ product.title }}
+          </h3>
+          <p class="text-sm text-text-color flex gap-2 items-center">
+            <span
+              ><i class="fa-solid fa-star text-yellow-400"></i>
+              {{ product.ratingsAverage }}</span
+            >
+            <span class="text-second-color text-xs">(500+)</span>
+          </p>
+        </div>
+        <div class="cart-footer flex items-center relative p-1 pb-4">
+          <p class="font-bold text-main-color text-xl">
+            {{ (product.price * 80) / 100 }}
+            <span class="line-through text-second-text">{{
+              product.price
+            }}</span>
+          </p>
+          <div
+            (click)="addProductToCart(product._id)"
+            (click)="preventPropagation($event)"
+            class="absolute right-0 text-3xl p-2"
+          >
+            @if (cartLoading.cartLoading[product._id]) {
+            <span
+              class="w-[30px] h-[30px] flex items-center justify-center text-white bg-main-color rounded-lg"
+            >
+              <i
+                class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse text-lg"
+              ></i>
+            </span>
+            }@else{
+            <i class="fa-solid fa-square-plus text-main-color rounded-lg"></i>
+            }
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    <button
+      routerLink="/products"
+      (click)="navColorService.updatePath('/products')"
+      class="px-6 py-2 border-2 mt-10 border-main-color text-main-color rounded-full mx-auto flex items-center gap-2 transition duration-500 hover:bg-main-color hover:text-white"
+    >
+      <span>See All</span> <span class="material-icons">chevron_right</span>
+    </button>
+  </section>
+
+  <section
+    class="relative w-full h-[450px] mb-10 flex items-center justify-center text-center text-white"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/images/panner.png"
+        alt="Fashion"
+        class="w-full h-full object-cover object-[17px_10%]"
+      />
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl px-6">
+      <h1 class="text-xl md:text-5xl font-bold">
+        Discover Fashion That Speaks To You.
+      </h1>
+      <p class="mt-4 text-lg md:font-medium md:text-2xl">
+        Explore a range of high-quality, affordable furniture designed to
+        transform any room. Discover the perfect blend of style, comfort, and
+        functionality for your space.
+      </p>
+      <button
+        class="mt-6 px-6 py-3 border border-white rounded-full text-lg font-medium hover:bg-white hover:text-black transition"
+      >
+        See More
+      </button>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto pb-40 pt-10">
+    <div class="sec-title text-center mb-10">
+      <h2 class="text-[32px] text-main-color font-normal font-header-style">
+        Services
+      </h2>
+      <p class="text-[40px] font-semibold text-text-color">
+        Benefits when using <br />
+        our services
+      </p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <!-- Card 1 -->
+      <div class="bg-white p-7 rounded-xl shadow-md">
+        <div
+          class="flex items-center justify-center w-14 h-14 mb-2 bg-[#f9f9f9] rounded-full"
+        >
+          <i class="fa-regular fa-lightbulb text-amber-800 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900">Inspiration</h3>
+        <p class="text-gray-600 mt-2">
+          Get inspired with our creative solutions designed to spark innovation
+          and bring your ideas to life.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-7 rounded-xl shadow-md">
+        <div
+          class="flex items-center justify-center w-14 h-14 mb-2 bg-[#f9f9f9] rounded-full"
+        >
+          <i class="fa-solid fa-headphones text-amber-800 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900">24/7 Customer Services</h3>
+        <p class="text-gray-600 mt-2">
+          Our support team is available around the clock to assist you with any
+          inquiries or issues you may have.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-7 rounded-xl shadow-md">
+        <div
+          class="flex items-center justify-center w-14 h-14 mb-2 bg-[#f9f9f9] rounded-full"
+        >
+          <i class="fa-solid fa-truck-fast text-amber-800 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900">Express Shipping</h3>
+        <p class="text-gray-600 mt-2">
+          Experience lightning-fast delivery with our express shipping service,
+          ensuring your orders reach you in no time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto pb-40">
+    <div class="sec-title text-center mb-10">
+      <h2 class="text-[32px] text-main-color font-normal font-header-style">
+        Testimonials
+      </h2>
+      <p class="text-[40px] font-semibold text-text-color">
+        What Our Customer Say
+      </p>
+    </div>
+
+    <owl-carousel-o
+      class="mt-8 !flex !gap-8 relative"
+      [options]="customOptions"
+    >
+      <!-- Static Testimonial 1 -->
+      <!-- <div class="flex gap-4"> -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-1.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Static Testimonial 2 -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-2.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Static Testimonial 3 -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-3.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- </div> -->
+
+      <!-- Static Testimonial 3 -->
+      <ng-template carouselSlide>
+        <div class="bg-bg-color p-2">
+          <div class="inner bg-white p-7 rounded-xl shadow-md">
+            <div>
+              <i class="fa-solid fa-quote-left text-main-color text-4xl"></i>
+            </div>
+            <p class="text-second-text text-lg my-4">
+              Lorem ipsum dolor sit amet consectetur. Est vel risus hendrerit
+              laoreet purus malesuada dignissim.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/images/client-sm-4.jpg"
+                  class="!w-[50px] !h-[50px] rounded-full"
+                  alt=""
+                />
+                <h3 class="text-xl font-semibold text-text-color">
+                  Berry Gunawan
+                </h3>
+              </div>
+              <div class="rading flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400"></i>
+                <span>4.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- </div> -->
+    </owl-carousel-o>
+  </section>
+</main>

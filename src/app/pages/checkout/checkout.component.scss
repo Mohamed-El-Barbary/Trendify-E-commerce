@@ -1,0 +1,35 @@
+:host ::ng-deep .p-select:not(.p-disabled).p-focus {
+  border-color: var(--main-color);
+}
+
+:host ::ng-deep .p-select-option.p-select-option-selected.p-focus,
+:host ::ng-deep .p-togglebutton.p-togglebutton-checked::before {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+:host ::ng-deep .p-togglebutton.p-togglebutton-checked {
+  color: #fff;
+}
+
+:host ::ng-deep .p-select-label.p-placeholder {
+  color: #000;
+}
+
+:host ::ng-deep .p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover {
+  background: #eee;
+  color: unset;
+}
+
+:host ::ng-deep .p-togglebutton {
+  background-color: #eee;
+}
+
+:host ::ng-deep .p-textarea:enabled:hover,
+:host ::ng-deep .p-textarea,
+:host ::ng-deep .p-textarea:enabled:focus {
+  border-color: var(--main-color);
+}
+:host ::ng-deep .p-select {
+  border-color: var(--main-color);
+}

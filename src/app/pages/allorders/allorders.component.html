@@ -1,0 +1,169 @@
+<header class="">
+  <div class="h-[150px]"></div>
+  <div class="nav-breadcrumb !max-w-7xl px-8 2xl:p-0 mx-auto">
+    <p-breadcrumb class="" [model]="links">
+      <ng-template #item let-item>
+        @if (item.route) {
+        <a
+          [routerLink]="item.route"
+          class="p-breadcrumb-item-link flex items-center gap-2 px-3 py-2 text-white hover:opacity-80 transition duration-300"
+        >
+          @if (item.icon) {
+          <span [ngClass]="[item.icon, 'text-lg text-white']"></span>
+          }
+          <span class="text-main-color text-lg font-medium">
+            {{ item.label }}
+          </span>
+        </a>
+        } @else {
+        <span class="text-second-text font-medium text-lg">
+          {{ item.label }}
+        </span>
+        }
+      </ng-template>
+    </p-breadcrumb>
+  </div>
+</header>
+<main>
+  <section class="pb-20 pt-5">
+    <div class="max-w-7xl mx-auto rounded-lg px-2 md:px-8 2xl:px-0">
+      <div
+        class="header text-2xl max-w-full font-bold mb-4 flex justify-between items-center"
+      >
+        <h1
+          class="text-4xl font-semibold text-text-color flex items-center gap-4"
+        >
+          Your Orders
+        </h1>
+      </div>
+      <div class="inner grid grid-cols-1 lg:grid-cols-2 gap-10">
+        @for (order of userOrderData; track $index) { @if
+        (order.shippingAddress) {
+        <div class="flex flex-col gap-4 border border-gray-400">
+          <!-- رأس الطلب -->
+          <div
+            class="header flex justify-between items-center bg-white p-6 rounded-lg shadow-md"
+          >
+            <h2 class="text-lg font-semibold text-gray-700">
+              Order Id: <span class="text-blue-600">{{ order.id }}</span>
+            </h2>
+
+            <h3>
+              @if (!order.isPaid) {
+              <p-button
+                label="Unpaid"
+                [rounded]="true"
+                severity="secondary"
+              ></p-button>
+              } @else {
+              <p-button
+                label="Paid"
+                [rounded]="true"
+                severity="success"
+              ></p-button>
+              }
+            </h3>
+          </div>
+
+          <!-- معلومات المستخدم والدفع -->
+          <div class="user-info flex flex-col md:flex-row gap-6">
+            <!-- معلومات المستخدم -->
+            <div class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2">
+              <h2 class="text-lg font-semibold mb-4 text-gray-700">
+                User Information
+              </h2>
+              <ul class="space-y-3 text-gray-600">
+                <li>
+                  <span class="font-medium text-gray-800">Phone:</span>
+                  {{ order.shippingAddress.phone }}
+                </li>
+                <li>
+                  <span class="font-medium text-gray-800">Name:</span>
+                  {{ order.user.name }}
+                </li>
+                <li>
+                  <span class="font-medium text-gray-800">City:</span>
+                  {{ order.shippingAddress.city }}
+                </li>
+                <li>
+                  <span class="font-medium text-gray-800">Details:</span>
+                  {{ order.shippingAddress.details }}
+                </li>
+                <li>
+                  <span class="font-medium text-gray-800">Payment Method:</span>
+                  {{ order.paymentMethodType }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- تفاصيل الدفع -->
+            <div class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2">
+              <h2 class="text-lg font-semibold mb-4 text-text-color">
+                Payment Details
+              </h2>
+              <ul class="space-y-3 text-text-color">
+                <li>
+                  <span class="font-medium text-text-color"
+                    >Products Price :
+                  </span>
+                  {{ order.totalOrderPrice }}
+                </li>
+                <li>
+                  <span class="font-medium text-text-color">Tax : </span>
+                  {{ order.taxPrice }}
+                </li>
+                <li class="pb-6 border-b border-gray-400">
+                  <span class="font-medium text-text-color">Shipping : </span>
+                  {{ order.shippingPrice }}
+                </li>
+                <li class="pt-2">
+                  <span class="font-medium text-text-color">Total Price : </span
+                  >{{ order.totalOrderPrice }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- المنتجات -->
+          <div class="order-products bg-white p-6 rounded-lg shadow-md h-full">
+            <h2 class="text-lg font-semibold mb-4 text-gray-700">
+              Order Products
+            </h2>
+
+            <!-- صندوق به خاصية التمرير -->
+            <div
+              class="flex flex-col gap-4 max-h-64 overflow-y-auto border border-gray-400"
+            >
+              @for (item of order.cartItems; track item._id) {
+              <div class="flex items-center gap-4 p-4 border-b last:border-b-0">
+                <!-- صورة المنتج -->
+                <img
+                  [src]="item.product.imageCover"
+                  [alt]="item.product.title"
+                  class="w-16 h-16 rounded-lg object-cover"
+                  aria-label="item.product.title"
+                />
+                <!-- تفاصيل المنتج -->
+                <div class="flex flex-col">
+                  <h3 class="text-gray-800 font-medium">
+                    {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+                  </h3>
+                  <p class="text-gray-600">
+                    Price: <span class="text-blue-600">{{ item.price }} $</span>
+                  </p>
+                  <p class="text-gray-600">
+                    Quantity:
+                    <span class="text-blue-600">{{ item.count }}</span>
+                  </p>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        } }
+      </div>
+    </div>
+  </section>
+</main>

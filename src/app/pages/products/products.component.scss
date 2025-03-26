@@ -1,0 +1,32 @@
+.custom-breadcrumb {
+    background: none;
+    border: none;
+    padding: 0;
+
+    .p-breadcrumb {
+        display: flex;
+        align-items: center;
+    }
+
+    .p-breadcrumb-chevron {
+        color: #c4c4c4;
+    }
+
+    .breadcrumb-item {
+        text-decoration: none;
+        color: #8b5c2e;
+        /* لون بني كما في الصورة */
+        font-weight: 600;
+        font-size: 14px;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: #a97c50;
+        }
+    }
+
+    .inactive {
+        color: #d1d1d1;
+        /* لون رمادي للعنصر غير النشط */
+    }
+}

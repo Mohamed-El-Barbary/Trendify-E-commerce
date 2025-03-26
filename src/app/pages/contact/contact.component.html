@@ -1,0 +1,174 @@
+<header class="">
+  <div class="h-[150px]"></div>
+  <div class="nav-breadcrumb !max-w-7xl px-8 2xl:p-0 mx-auto">
+    <p-breadcrumb class="" [model]="links">
+      <ng-template #item let-item>
+        @if (item.route) {
+        <a
+          [routerLink]="item.route"
+          class="p-breadcrumb-item-link flex items-center gap-2 px-3 py-2 text-white hover:opacity-80 transition duration-300"
+        >
+          @if (item.icon) {
+          <span [ngClass]="[item.icon, 'text-lg text-white']"></span>
+          }
+          <span class="text-main-color text-lg font-medium">
+            {{ item.label }}
+          </span>
+        </a>
+        } @else {
+        <span class="text-second-text font-medium text-lg">
+          {{ item.label }}
+        </span>
+        }
+      </ng-template>
+    </p-breadcrumb>
+  </div>
+</header>
+
+<main>
+  <section class="rounded-lg max-w-7xl w-full mx-auto pb-20 pt-14">
+    <div class="caption mb-5">
+      <h2 class="text-[40px] font-semibold text-text-color">Contact me</h2>
+      <p class="text-second-text text-lg font-medium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor
+      </p>
+    </div>
+    <form class="max-w-4xl">
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="mb-5">
+          <label
+            for="first-name"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >First Name</label
+          >
+          <input
+            type="text"
+            id="first-name"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="first-name"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            id="first-name"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="mb-5">
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+        <div class="mb-5">
+          <label
+            for="phone-number"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Phone Number</label
+          >
+          <input
+            type="tel"
+            id="base-input"
+            class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+          />
+        </div>
+      </div>
+      <div class="mb-5">
+        <label
+          for="selection"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Choose a topic</label
+        >
+        <input
+          type="text"
+          id="selection"
+          class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500"
+        />
+      </div>
+      <div class="mb-5">
+        <label
+          for="base-input"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Message</label
+        >
+        <textarea
+          type="text"
+          id="base-input"
+          class="bg-gray-50 border border-second-color text-text-color text-sm rounded-lg focus:ring-second-color focus:border-second-color block w-full p-2.5 transition-all duration-500 h-52"
+        ></textarea>
+      </div>
+
+      <div class="flex items-start mb-5">
+        <div class="flex items-center h-5">
+          <input
+            id="terms"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300"
+            required
+          />
+        </div>
+        <label for="terms" class="ms-2 text-sm font-medium text-gray-900"
+          >I agree with the
+          <a href="#" class="text-main-color hover:underline"
+            >terms and conditions</a
+          ></label
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="text-white bg-main-color focus:ring-4 focus:outline-none font-medium rounded-full text-sm w-full sm:w-auto px-10 py-2.5 text-center"
+      >
+        Submit
+      </button>
+    </form>
+  </section>
+  <section class="pb-20 pt-10">
+    <div class="bg-white max-w-7xl mx-auto px-2 md:px-8 2xl:px-0 py-24">
+      <div class="inner flex max-w-xl mx-auto text-center flex-col gap-6">
+        <div class="icon text-main-color text-5xl">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="descrption">
+          <h3 class="text-base text-text-color font-medium mb-3">
+            SIGN UP FOR TEEMATE STYLE NEWS
+          </h3>
+          <p class="text-sm text-[#667085] font-medium">
+            Get 15% off your first purchaxse! Plus, be the first to know about
+            sales, new product launches and exclusive offers!
+          </p>
+        </div>
+        <div class="subscribe">
+          <form action="" class="flex flex-col sm:flex-row gap-2">
+            <input
+              type="email"
+              class="w-full px-4 py-2 text-second-color bg-bg-color rounded"
+              placeholder="Enter your email"
+            />
+            <button
+              type="submit"
+              class="w-full sm:w-auto px-4 py-2 text-white bg-main-color rounded"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

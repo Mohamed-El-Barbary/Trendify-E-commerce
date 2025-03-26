@@ -1,0 +1,182 @@
+<header class="">
+  <div class="h-[150px]"></div>
+  <div class="nav-breadcrumb !max-w-7xl px-8 2xl:p-0 mx-auto">
+    <p-breadcrumb class="" [model]="links">
+      <ng-template #item let-item>
+        @if (item.route) {
+        <a
+          [routerLink]="item.route"
+          class="p-breadcrumb-item-link flex items-center gap-2 px-3 py-2 text-white hover:opacity-80 transition duration-300"
+        >
+          @if (item.icon) {
+          <span [ngClass]="[item.icon, 'text-lg text-white']"></span>
+          }
+          <span class="text-main-color text-lg font-medium">
+            {{ item.label }}
+          </span>
+        </a>
+        } @else {
+        <span class="text-second-text font-medium text-lg">
+          {{ item.label }}
+        </span>
+        }
+      </ng-template>
+    </p-breadcrumb>
+  </div>
+  <section
+    class="header-details max-w-7xl mx-auto pb-72 sm:pb-56 pt-20 md:pb-16 px-4 md:px-8 2xl:px-0"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-[25%_1fr] relative">
+      <div class="">
+        <div
+          class="inner absolute top-3/4 -translate-y-1/4 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 md:top-1/2 md:-translate-y-1/2 w-[300px] sm:w-[400px] md:w-[525px] p-6 md:p-12 md:pe-24 bg-white rounded-3xl md:opacity-80"
+        >
+          <div class="icon text-3xl text-main-color">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
+          <p
+            class="text-[#344054] italic text-xl font-medium leading-relaxed my-5"
+          >
+            We are glad to present you our most perfect Shopify theme, which
+            supports Sections Everywhere, very high metric scores by google page
+            speed insight. This is the most mobile-oriented theme that will be
+            convenient on any of your devices.
+          </p>
+          <div class="mt-4 flex justify-between items-center">
+            <h3 class="text-text-color text-base font-semibold">
+              Jack Donowan
+            </h3>
+            <div class="image">
+              <img
+                src="/images/about-image/headerAbouts.png"
+                alt="Signature"
+                class="h-[106px] mt-2"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full h-[600px]">
+        <img
+          src="/images/about-image/header-img.jpeg"
+          alt="Person"
+          class="w-full h-full object-cover rounded-3xl"
+        />
+      </div>
+    </div>
+  </section>
+</header>
+
+<main class="py-14">
+  <div class="sec-title text-center">
+    <h2 class="font-bold text-4xl text-text-color capitalize mb-4">
+      A few words about us
+    </h2>
+    <p class="text-sm text-[#667085]">
+      Make your best moments more stylish with our latest designs of clothing.
+    </p>
+  </div>
+  <section class="why-us max-w-7xl mx-auto px-4 md:px-8 2xl:px-0 pt-20">
+    <div
+      class="grid grid-cols-1 items-center lg:grid-cols-2 md:gap-16 lg:gap-36"
+    >
+      <div class="image">
+        <img src="/images/about-image/Group 2167.png" alt="" />
+      </div>
+      <div class="why-us-details lg:pe-16">
+        <h3 class="text-2xl font-semibold text-text-color">Why choose us ?</h3>
+        <p class="text-lg text-[#475467]">
+          Maecenas congue metus id turpis iaculis mattis. Sed pellentesque id
+          arcu id scelerisque. Ut ullamcorper rutrum justo, at blandit eros
+          maximus ut. Integer non tincidunt justo, rhoncus Aenean venenatis sed
+          purus ac sollicitudin. Nulla mauris risus, commodo et luctus rutrum,
+          lobortis sed mauris. Integer congue, sem elementum varius tristique.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    class="online-shopping max-w-7xl mx-auto px-4 md:px-8 2xl:px-0 py-20 lg:py-32"
+  >
+    <div
+      class="grid grid-cols-1 items-center lg:grid-cols-2 md:gap-16 lg:gap-36"
+    >
+      <div class="image lg:order-2">
+        <img src="/images/about-image/Group 2169.png" alt="" />
+      </div>
+      <div class="why-us-details lg:pe-16">
+        <h3 class="text-2xl font-semibold text-text-color">
+          Trusted online shopping
+        </h3>
+        <p class="text-lg text-[#475467]">
+          Maecenas congue metus id turpis iaculis mattis. Sed pellentesque id
+          arcu id scelerisque. Ut ullamcorper rutrum justo, at blandit eros
+          maximus ut. Integer non tincidunt justo, rhoncus Aenean venenatis sed
+          purus ac sollicitudin. Nulla mauris risus, commodo et luctus rutrum,
+          lobortis sed mauris. Integer congue, sem elementum varius tristique.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    class="why-us max-w-7xl mx-auto px-4 md:px-8 2xl:px-0 pb-14 lg:pb-20"
+  >
+    <div
+      class="grid grid-cols-1 items-center lg:grid-cols-2 md:gap-16 lg:gap-36"
+    >
+      <div class="image">
+        <img src="/images/about-image/Group 2168.png" alt="" />
+      </div>
+      <div class="why-us-details lg:pe-16">
+        <h3 class="text-2xl font-semibold text-text-color">Why choose us ?</h3>
+        <p class="text-lg text-[#475467]">
+          Maecenas congue metus id turpis iaculis mattis. Sed pellentesque id
+          arcu id scelerisque. Ut ullamcorper rutrum justo, at blandit eros
+          maximus ut. Integer non tincidunt justo, rhoncus Aenean venenatis sed
+          purus ac sollicitudin. Nulla mauris risus, commodo et luctus rutrum,
+          lobortis sed mauris. Integer congue, sem elementum varius tristique.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="sec-title text-center mb-14">
+      <h2
+        class="text-4xl font-semibold text-text-color flex flex-col md:flex-row items-center justify-center gap-3 mb-4"
+      >
+        <i class="fa-brands fa-instagram text-[#1D2939] text-2xl"></i>
+        <span class="text-main-color italic">#iconic_fashion</span> On Instagram
+      </h2>
+      <p class="text-xl text-[#667085]">
+        Phasellus lorem malesuada ligula pulvinar commodo maecenas
+      </p>
+    </div>
+    <div class="grid grid-cols-5">
+      <img
+        src="/images/about-image/iconicinsta.png"
+        class="h-[375px] w-full"
+        alt=""
+      />
+      <img
+        src="/images/about-image/iconic-insta__3_-removebg-preview (1).png"
+        class="h-[375px] w-full"
+        alt=""
+      />
+      <img
+        src="/images/about-image/iconic.png"
+        class="h-[375px] w-full"
+        alt=""
+      />
+      <img
+        src="/images/about-image/iconic-insta.jpeg"
+        class="h-[375px] w-full"
+        alt=""
+      />
+      <img
+        src="/images/about-image/iconic-insta.png"
+        class="h-[375px] w-full"
+        alt=""
+      />
+    </div>
+  </section>
+</main>

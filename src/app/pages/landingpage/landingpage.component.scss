@@ -1,0 +1,105 @@
+@use "@angular/material" as mat;
+
+.taps-sec {
+  .mat-mdc-tab-label-container {
+    justify-content: center !important;
+    border: unset !important;
+  }
+
+  .mat-mdc-tab-labels {
+    background-color: #eee !important;
+    border-radius: 50px;
+  }
+
+  .mdc-tab {
+    padding: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .mat-mdc-tab {
+    height: unset !important;
+  }
+
+  .mat-mdc-tab-list {
+    flex-grow: 0 !important;
+  }
+
+  .mdc-tab-indicator {
+    display: none !important;
+  }
+
+  .mdc-tab__text-label {
+    color: var(--second-text) !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    padding: 12px 25px !important;
+    transition: unset !important;
+  }
+
+  .mdc-tab--active {
+    color: #fff !important;
+  }
+
+  .mdc-tab--active .mdc-tab__text-label {
+    color: #fff !important;
+  }
+
+  .mdc-tab-indicator--active {
+    background-color: var(--main-color) !important;
+    border-radius: 99999px;
+  }
+
+  .mat-mdc-tab-ripple,
+  .mat-ripple {
+    border-radius: 50px;
+  }
+  .mat-mdc-tab-body-content {
+    overflow: hidden !important;
+  }
+}
+
+owl-carousel-o {
+  @media (min-width: 1300px) {
+    .owl-carousel {
+      position: relative;
+    }
+
+    .owl-nav {
+      width: 100%;
+      color: green !important;
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      align-items: center;
+      justify-content: center;
+      margin-top: 0 !important;
+    }
+
+    .owl-nav .owl-prev,
+    .owl-nav .owl-next {
+      background: unset !important;
+      position: absolute;
+      z-index: 9999;
+    }
+
+    .owl-nav .owl-prev {
+      left: -35px;
+    }
+
+    .owl-nav .owl-next {
+      right: -35px;
+    }
+
+    .owl-nav i {
+      color: var(--main-color) !important;
+      font-size: 30px !important;
+    }
+  }
+
+  .owl-nav i {
+    color: var(--main-color) !important;
+    font-size: 20px;
+  }
+}

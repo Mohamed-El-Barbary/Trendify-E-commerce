@@ -1,0 +1,294 @@
+<section class="min-h-screen bg-bg-color">
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <div class="min-w-full pt-12 lg:pt-24 px-8 lg:px-20">
+      <div class="inner max-w-xl mx-auto">
+        <div class="caption mb-4">
+          <h2 class="text-[32px] font-semibold text-text-color">
+            Welcome Back!
+          </h2>
+          <p class="text-lg text-second-text">
+            Please login or sign up to continue our app
+          </p>
+        </div>
+        <form
+          class="pe-4 flex flex-col justify-center"
+          (ngSubmit)="submitForm()"
+          [formGroup]="loginForm"
+        >
+          <div class="mb-3">
+            @let mailControl = loginForm.get('email');
+            <label
+              for="email"
+              class="block mb-2 text-base font-medium text-text-color"
+              >E-mail</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <i class="fa-regular fa-envelope text-main-color"></i>
+              </div>
+              <input
+                formControlName="email"
+                type="email"
+                id="email"
+                class="bg-white text-second-text text-[15px] font-medium rounded-lg focus:border-second-color block min-w-full ps-10 p-2.5 outline-none border-none"
+                placeholder="Enter Your Mail"
+              />
+            </div>
+
+            @if (mailControl?.errors && mailControl?.touched) {
+            <div
+              class="flex px-4 py-2 text-sm items-center mt-1 text-red-900 rounded-lg bg-red-50"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <div>
+                <ul class="list-inside">
+                  @if (mailControl?.getError('required')) {
+                  <li>The name field is required</li>
+                  }@else if (mailControl?.getError('email')) {
+                  <li>Enter valid Email</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            }
+          </div>
+          <div class="mb-3">
+            @let passwordControl = loginForm.get('password');
+            <label
+              for="password"
+              class="block mb-2 text-base font-medium text-text-color"
+            >
+              Password
+            </label>
+            <div class="relative">
+              <!-- أيقونة القفل -->
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <i class="fa-solid fa-lock text-main-color"></i>
+              </div>
+
+              <input
+                formControlName="password"
+                [type]="isPasswordVisible() ? 'text' : 'password'"
+                id="password"
+                class="bg-white text-second-text text-[15px] font-medium rounded-lg focus:border-second-color block min-w-full ps-10 p-2.5 outline-none border-none"
+                placeholder="Enter Your Password"
+                (input)="onInput($event)"
+              />
+
+              <!-- زر تبديل إظهار/إخفاء كلمة المرور -->
+              @if (showPasswordToggle()) {
+              <button
+                type="button"
+                (click)="toggleVisibility()"
+                class="absolute inset-y-0 end-0 flex items-center pe-3.5"
+              >
+                <i
+                  class="fa-solid text-main-color"
+                  [ngClass]="isPasswordVisible() ? 'fa-eye' : 'fa-eye-slash'"
+                ></i>
+                <span class="sr-only">{{
+                  isPasswordVisible() ? "Hide password" : "Show password"
+                }}</span>
+              </button>
+              }
+            </div>
+
+            @if (passwordControl?.errors && passwordControl?.touched) {
+            <div
+              class="flex px-4 py-2 text-sm items-center mt-1 text-red-900 rounded-lg bg-red-50"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <div>
+                <ul class="list-inside">
+                  @if (passwordControl?.getError('required')) {
+                  <li>The password field is required</li>
+                  } @else if (passwordControl?.getError('pattern')) {
+                  <li>
+                    Password must start with an uppercase letter and be at least
+                    6 characters long.
+                  </li>
+                  }
+                </ul>
+              </div>
+            </div>
+            }
+          </div>
+          <div class="mb-3 mt-1">
+            <div class="flex justify-between">
+              <div class="flex items-center">
+                <div class="flex items-center h-5">
+                  <input
+                    #termInput
+                    id="terms"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 border border-gray-300 checked:text-main-color rounded-sm bg-gray-50 focus:ring-3 focus:ring-second-color"
+                    required
+                  />
+                </div>
+                <label
+                  for="terms"
+                  class="ms-2 text-sm font-medium text-text-color"
+                  >Remember Me
+                </label>
+              </div>
+              <div role="link">
+                <a
+                  routerLink="/resetpassword"
+                  class="text-main-color underline cursor-pointer"
+                >
+                  Forgot Password?
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            @if (msgError()) {
+            <div
+              class="flex items-center p-4 mb-4 mt-2 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Info</span>
+              <div>
+                {{ msgError() }}
+              </div>
+            </div>
+            }@else if(successeded()){
+            <div
+              class="flex items-center p-4 mb-4 mt-2 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Info</span>
+              <p>✅ Success! You have logged in successfully.</p>
+            </div>
+            }
+          </div>
+          <div class="flex flex-col items-center justify-start space-y-4 p-2">
+            <button [disabled]="isLoading()" type="submit" class="main-btn">
+              Log in @if (isLoading()) {
+              <i class="fa-solid fa-circle-notch fa-spin ms-2"></i>
+              }
+            </button>
+
+            <p class="text-gray-500 text-sm">Or Sign up With</p>
+
+            <div class="flex space-x-4">
+              <img
+                src="/images/Google__G__logo.svg.png"
+                alt=""
+                class="w-8 h-8"
+              />
+              <img
+                src="/images/Facebook_Logo_(2019).png"
+                alt=""
+                class="w-8 h-8"
+              />
+              <img
+                src="/images/Apple_logo_black.svg.png"
+                alt=""
+                class="w-8 h-8"
+              />
+            </div>
+
+            <p class="text-gray-500 text-sm">
+              Don’t have an account ?
+              <a
+                routerLink="/signin"
+                class="text-main-color font-semibold underline"
+                >Sign up.</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="h-screen hidden md:flex justify-center relative">
+      <swiper-container
+        #swiperContainer
+        class="mySwiper w-full"
+        speed="600"
+        parallax="true"
+        loop="true"
+        pagination-clickable="true"
+        pagination="true"
+        spaceBetween="0"
+      >
+        <swiper-slide class=" ">
+          <img
+            src="/images/slider1.png"
+            class="block w-screen max-w-full object-cover h-full"
+            alt=""
+          />
+        </swiper-slide>
+        <swiper-slide class="">
+          <img
+            src="/images/slider3.png"
+            class="block max-w-full w-screen object-cover h-full"
+            alt=""
+          />
+        </swiper-slide>
+        <swiper-slide class="">
+          <img
+            src="/images/slider2.png"
+            class="block max-w-full w-screen object-cover h-full"
+            alt=""
+          />
+        </swiper-slide>
+      </swiper-container>
+      <div class="caption text-white absolute bottom-36 z-50 text-center">
+        <h2 class="text-[32px] font-bold">Welcome to Trendify</h2>
+        <p class="text-xl font-medium">
+          Discover the latest trends, express your unique style.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+:host ::ng-deep .p-accordioncontent-content {
+  color: #090f41 !important;
+  background-color: #f6f6f6 !important;
+}
+.about-price {
+  @media (max-width: 480px) {
+    .addcart-btn {
+      flex-direction: column;
+    }
+  }
+}
+:host ::ng-deep .swiper-wrapper {
+  max-height: 750px;
+}
+@media (min-width: 768px) {
+  :host ::ng-deep swiper-container {
+    height: 450px ;
+  }
+}
+@media (min-width: 790px) {
+  :host ::ng-deep swiper-container {
+    height: 470px ;
+  }
+}
+@media (min-width: 800px) {
+  :host ::ng-deep swiper-container {
+    height: 500px ;
+  }
+}
+@media (min-width: 850px) {
+  :host ::ng-deep swiper-container {
+    height: 550px ;
+  }
+}
+@media (min-width: 900px) {
+  :host ::ng-deep swiper-container {
+    height: 675px ;
+  }
+}
+@media (min-width: 1024px) {
+  :host ::ng-deep swiper-container {
+    height: 280px ;
+  }
+}
+@media (min-width: 1080px) {
+  :host ::ng-deep swiper-container {
+    height: 300px ;
+  }
+}
+@media (min-width: 1115px) {
+  :host ::ng-deep swiper-container {
+    height: 350px ;
+  }
+}
+@media (min-width: 1190px) {
+  :host ::ng-deep swiper-container{
+    height: 380px ;
+  }
+}
+@media (min-width: 1235px) {
+  :host ::ng-deep swiper-container{
+    height: 375px ;
+  }
+}
+@media (min-width: 1280px) {
+  :host ::ng-deep swiper-container{
+    height: 400px ;
+  }
+}

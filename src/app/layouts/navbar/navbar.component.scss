@@ -1,0 +1,84 @@
+/* nav {
+  @media (min-width: 768px) and (max-width: 900px) {
+    .nav-parent {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .nav-links {
+      gap: 0.625rem;
+    }
+  }
+} */
+
+nav {
+  @media (min-width: 992px) {
+    .nav-links {
+      position: static;
+      display: flex;
+    }
+    .nav-links ul {
+      flex-direction: row;
+    }
+  }
+  @media (min-width: 992px) {
+    .btn-bars {
+      display: none;
+    }
+  }
+  @media (max-width: 991px) {
+    .nav-links a {
+      color: var(--second-text) !important;
+    }
+    .nav-links {
+      position: absolute;
+      text-align: center;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      border: 1px solid var(--main-color);
+      z-index: 9999;
+      padding: 15px 10px;
+      border-radius: 20px;
+      transition: all 0.7s;
+    }
+    .nav-links ul {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .icons {
+      flex-grow: 1;
+      align-items: end;
+      margin-right: 10px;
+    }
+  }
+}
+:host ::ng-deep .p-menu-overlay {
+  top: 101% !important;
+  left: unset !important;
+  right: 45px !important
+  ;
+}
+
+@media (max-width: 600px) {
+  :host ::ng-deep .p-dialog {
+    width: 20rem !important;
+  }
+}
+
+:host ::ng-deep .p-badge-circle ,
+:host ::ng-deep .p-badge {
+  padding: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: -14px;
+  border: 2px solid #fff;
+  background-color: var(--second-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height:  25px;
+}

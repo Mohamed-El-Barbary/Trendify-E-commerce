@@ -1,0 +1,480 @@
+<nav
+  [ngClass]="{
+    '!bg-bg-color transition-all duration-500 ease-in-out': isScrolled()
+  }"
+  class="bg-transparent shadow-sm fixed w-full z-[999999]"
+>
+  <div class="container max-w-7xl px-8 2xl:px-0 relative">
+    <div
+      class="nav-parent flex flex-wrap items-center justify-between mx-auto py-5 relative"
+    >
+      <a class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span
+          class="self-center text-[32px] text-main-color font-header-style font-bold whitespace-nowrap"
+          >Trendify</span
+        >
+      </a>
+      <button
+        (click)="showNavLinks()"
+        type="button"
+        class="btn-bars order-2 inline-flex p-2 w-10 h-10 justify-center items-center text-sm text-second-text rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        aria-controls="navbar-default"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+
+        @if (!navlinks()) {
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"
+          />
+        </svg>
+        }@else {
+        <i class="fa-solid fa-xmark text-3xl"></i>
+        }
+      </button>
+
+      <div
+        [ngClass]="{
+          '-top-[500%] ': !navlinks(),
+          'top-[101%] ': navlinks()
+        }"
+        class="nav-links text-center w-full justify-end items-center md:w-auto transition-all duration-500"
+        id="navbar-default"
+      >
+        <ul
+          class="font-medium flex p-4 md:p-0 border border-gray-100 rounded-lg md:space-x-4 lg:space-x-6 rtl:space-x-reverse md:mt-0 md:border-0 capitalize"
+        >
+          <li>
+            <a
+              #navLink
+              [routerLink]="'/home'"
+              routerLinkActive="!text-main-color"
+              class="block font-medium text-second-text text-lg rounded-sm md:p-0"
+              aria-current="page"
+              (click)="handleLinkClick()"
+              >Home
+            </a>
+          </li>
+          <li>
+            <a
+              #navLink
+              routerLink="/products"
+              routerLinkActive="!text-main-color"
+              class="block font-medium text-second-text text-lg rounded-sm md:p-0"
+              aria-current="page"
+              (click)="handleLinkClick()"
+              >products</a
+            >
+          </li>
+          <li>
+            <a
+              #navLink
+              routerLink="/about-us"
+              routerLinkActive="!text-main-color"
+              class="block font-medium text-second-text text-lg rounded-sm md:p-0"
+              aria-current="page"
+              (click)="handleLinkClick()"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              #navLink
+              routerLink="/blog"
+              routerLinkActive="!text-main-color"
+              class="block font-medium text-second-text text-lg rounded-sm md:p-0"
+              aria-current="page"
+              (click)="handleLinkClick()"
+              >blog</a
+            >
+          </li>
+          <li>
+            <a
+              #navLink
+              routerLink="/contact"
+              routerLinkActive="!text-main-color"
+              class="block font-medium text-second-text text-lg rounded-sm md:p-0"
+              aria-current="page"
+              (click)="handleLinkClick()"
+              >contact Us</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="icons order-1 flex flex-col p-4 md:p-0 rounded-lg md:mt-0 md:border-0 relative"
+      >
+        <p-menu #menu [model]="items" [popup]="true" />
+        <ul class="changed-class font-medium flex gap-4 md:gap-6">
+          @if (isLogin()) {
+          <li>
+            <a
+              #navLink
+              routerLink="/products/cart"
+              routerLinkActive="!text-main-color"
+              class="block text-2xl text-second-text rounded-sm md:p-0 relative"
+              aria-current="page"
+              (click)="scrollToTop()"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <p-badge [value]="countCartNumber()" />
+            </a>
+          </li>
+          <li>
+            <a
+              #navLink
+              (click)="menu.toggle($event)"
+              [ngClass]="{ '!text-main-color': visible }"
+              role="button"
+              class="block text-2xl text-second-text hover:text-main-color hover:cursor-pointer transition-all duration-300 rounded-sm md:p-0"
+              aria-current="page"
+              aria-label="user-info"
+              ><i class="fa-solid fa-user"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              #navLink
+              routerLink="/wishlist"
+              routerLinkActive="!text-main-color"
+              class="block text-2xl text-second-text rounded-sm md:p-0 relative"
+              aria-current="page"
+              (click)="scrollToTop()"
+            >
+              <i class="fa-regular fa-heart"></i>
+              <p-badge [value]="countWishlistNumber()" />
+            </a>
+          </li>
+          } @if (!isLogin()) {
+          <li>
+            <a
+              routerLink="/login"
+              role="button"
+              class="px-6 py-2 border border-[#81562C] text-[#81562C] rounded-full"
+            >
+              Login
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/signin"
+              role="button"
+              class="px-6 py-2 bg-[#81562C] text-white rounded-full"
+            >
+              Sign Up
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="popup">
+    <p-dialog
+      header="Personal Information"
+      [modal]="true"
+      [(visible)]="visible"
+      [style]="{ width: '40rem' }"
+    >
+      <p class="text-gray-500 mb-6 text-center">
+        Login to our store and start shopping your products
+      </p>
+      <h2 class="mb-5 text-center text-3xl text-text-color">Update Password</h2>
+      <div class="card">
+        <form
+          class="pe-4"
+          [formGroup]="updatePasswordForm"
+          (ngSubmit)="submitUpdatePasswordForm()"
+        >
+          <div class="grid md:grid-cols-1">
+            <div class="mb-3">
+              @let currentPasswordControl =
+              updatePasswordForm.get('currentPassword');
+              <label
+                for="currentPassword"
+                class="block mb-1 text-base font-medium text-text-color"
+              >
+                currentPassword
+              </label>
+              <div class="relative">
+                <!-- أيقونة القفل -->
+                <div
+                  class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                >
+                  <i class="fa-solid fa-lock text-main-color"></i>
+                </div>
+
+                <input
+                  formControlName="currentPassword"
+                  [type]="isCurrentPasswordVisible ? 'text' : 'password'"
+                  id="currentPassword"
+                  class="bg-bg-color text-second-text text-[15px] font-medium rounded-lg focus:border-second-color block min-w-full ps-10 p-2.5 outline-none border-none"
+                  placeholder="Enter Current Password"
+                  (input)="onInput($event, 'currentPassword')"
+                />
+
+                <!-- زر تبديل إظهار/إخفاء كلمة المرور -->
+                @if (showCurrentPasswordToggle) {
+                <button
+                  type="button"
+                  (click)="toggleVisibility('currentPassword')"
+                  class="absolute inset-y-0 end-0 flex items-center pe-3.5"
+                >
+                  <i
+                    class="fa-solid text-main-color"
+                    [ngClass]="
+                      isCurrentPasswordVisible ? 'fa-eye' : 'fa-eye-slash'
+                    "
+                  ></i>
+                  <span class="sr-only">{{
+                    isCurrentPasswordVisible ? "Hide password" : "Show password"
+                  }}</span>
+                </button>
+                }
+              </div>
+
+              @if (currentPasswordControl?.errors &&
+              currentPasswordControl?.touched) {
+              <div
+                class="flex px-4 py-2 text-sm items-center mt-1 text-red-900 rounded-lg bg-red-50"
+                role="alert"
+              >
+                <svg
+                  class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+                <div>
+                  <ul class="list-inside">
+                    @if (currentPasswordControl?.getError('required')) {
+                    <li>The password field is required</li>
+                    } @else if (currentPasswordControl?.getError('pattern')) {
+                    <li>
+                      Password must start with an uppercase letter and be at
+                      least 6 characters long.
+                    </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+              }
+            </div>
+
+            <div class="mb-3">
+              @let passwordControl = updatePasswordForm.get('password');
+              <label
+                for="password"
+                class="block mb-1 text-base font-medium text-text-color"
+              >
+                Password
+              </label>
+              <div class="relative">
+                <!-- أيقونة القفل -->
+                <div
+                  class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                >
+                  <i class="fa-solid fa-lock text-main-color"></i>
+                </div>
+
+                <input
+                  formControlName="password"
+                  [type]="isPasswordVisible ? 'text' : 'password'"
+                  id="password"
+                  class="bg-bg-color text-second-text text-[15px] font-medium rounded-lg focus:border-second-color block min-w-full ps-10 p-2.5 outline-none border-none"
+                  placeholder="Enter New Password"
+                  (input)="onInput($event, 'password')"
+                />
+
+                <!-- زر تبديل إظهار/إخفاء كلمة المرور -->
+                @if (showPasswordToggle) {
+                <button
+                  type="button"
+                  (click)="toggleVisibility('password')"
+                  class="absolute inset-y-0 end-0 flex items-center pe-3.5"
+                >
+                  <i
+                    class="fa-solid text-main-color"
+                    [ngClass]="isPasswordVisible ? 'fa-eye' : 'fa-eye-slash'"
+                  ></i>
+                  <span class="sr-only">{{
+                    isPasswordVisible ? "Hide password" : "Show password"
+                  }}</span>
+                </button>
+                }
+              </div>
+
+              @if (passwordControl?.errors && passwordControl?.touched) {
+              <div
+                class="flex px-4 py-2 text-sm items-center mt-1 text-red-900 rounded-lg bg-red-50"
+                role="alert"
+              >
+                <svg
+                  class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+                <div>
+                  <ul class="list-inside">
+                    @if (passwordControl?.getError('required')) {
+                    <li>The password field is required</li>
+                    } @else if (passwordControl?.getError('pattern')) {
+                    <li>
+                      Password must start with an uppercase letter and be at
+                      least 6 characters long.
+                    </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+              }
+            </div>
+
+            <div class="mb-3">
+              @let rePasswordControl = updatePasswordForm.get('rePassword');
+
+              <label
+                for="Repassword"
+                class="block mb-1 text-base font-medium text-text-color"
+              >
+                Confirm Password</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                >
+                  <i class="fa-solid fa-lock text-main-color"></i>
+                </div>
+                <input
+                  formControlName="rePassword"
+                  [type]="isConfirmPasswordVisible ? 'text' : 'password'"
+                  id="confirmPassword"
+                  class="bg-bg-color text-second-text text-[15px] font-medium rounded-lg focus:border-second-color block min-w-full ps-10 p-2.5 outline-none border-none"
+                  placeholder="Re-enter New Password"
+                  (input)="onInput($event, 'confirmPassword')"
+                />
+
+                <!-- زر تبديل إظهار/إخفاء تأكيد كلمة المرور -->
+                @if (showConfirmPasswordToggle) {
+                <button
+                  type="button"
+                  (click)="toggleVisibility('confirmPassword')"
+                  class="absolute inset-y-0 end-0 flex items-center pe-3.5"
+                >
+                  <i
+                    class="fa-solid text-main-color"
+                    [ngClass]="
+                      isConfirmPasswordVisible ? 'fa-eye' : 'fa-eye-slash'
+                    "
+                  ></i>
+                  <span class="sr-only">{{
+                    isConfirmPasswordVisible ? "Hide password" : "Show password"
+                  }}</span>
+                </button>
+                }
+              </div>
+              @if (updatePasswordForm.getError('mismatch') &&
+              rePasswordControl?.touched) {
+              <div
+                class="flex px-4 py-2 text-sm items-center mt-1 text-red-900 rounded-lg bg-red-50"
+                role="alert"
+              >
+                <svg
+                  class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+                <div>
+                  <ul class="list-inside">
+                    <li>Password confirmation is incorrect</li>
+                  </ul>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+
+          <div>
+            @if (msgErr()) {
+            <div
+              class="flex items-center p-4 mb-4 mt-2 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Info</span>
+              <div>
+                {{ msgErr() }}
+              </div>
+            </div>
+            }@else if(successeded()){
+            <div
+              class="flex items-center p-4 mb-4 mt-2 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Info</span>
+              <div>Done! Your Password has been updated successfully.</div>
+            </div>
+            }
+          </div>
+
+          <div class="flex flex-col items-center justify-start space-y-4 p-2">
+            <button [disabled]="isLoading()" type="submit" class="main-btn">
+              Update Password @if (isLoading()) {
+              <i class="fa-solid fa-circle-notch fa-spin ms-2"></i>
+              }
+            </button>
+          </div>
+        </form>
+      </div>
+    </p-dialog>
+  </div>
+</nav>
