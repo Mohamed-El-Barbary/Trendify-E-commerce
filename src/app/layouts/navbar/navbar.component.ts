@@ -113,7 +113,7 @@ export class NavbarComponent implements OnInit {
 
     this.cartService.getLoggedUserCart().subscribe({
       next: (res) => {
-        console.log(res);
+        console.log('carT Number',res.numOfCartItems);
         this.cartService.cartNumber.set(res.numOfCartItems);
       },
       error: (err) => {
@@ -122,13 +122,14 @@ export class NavbarComponent implements OnInit {
     });
 
     this.wishlistService.getLoggedUserWishlist().subscribe({
-      next:(res)=>{
-        console.log(res)
-        this.wishlistService.wishListNumber.set(res.count)
-      },error:(err)=>{
-        console.log(err)
-      }
-    })
+      next: (res) => {
+        console.log(res);
+        this.wishlistService.wishListNumber.set(res.count);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   ngAfterViewInit(): void {

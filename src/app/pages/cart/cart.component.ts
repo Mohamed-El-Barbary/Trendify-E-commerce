@@ -1,7 +1,14 @@
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { CartService } from './../../core/services/cart/cart.service';
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  Signal,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { ICart } from '../../shared/interfaces/icart';
 import { ButtonModule } from 'primeng/button';
@@ -33,16 +40,18 @@ export class CartComponent {
 
   cartProducts: ICart = {} as ICart;
   similarProducts: IProuduct[] = [];
-  numOfCartItems: WritableSignal<number> = signal(0);
   isLoading: { [key: string]: WritableSignal<boolean> } = {};
   isLoadingRemove: { [key: string]: WritableSignal<boolean> } = {};
   removeAllItemLoading: WritableSignal<boolean> = signal(false);
   checkLoading: WritableSignal<boolean> = signal(false);
   totalCartPrice: WritableSignal<number> = signal(0);
   estimatedEndDate: WritableSignal<string> = signal('');
-  isCartEmpty: WritableSignal<boolean>  = signal(false)
+  isCartEmpty: WritableSignal<boolean> = signal(false);
   today: Date = new Date();
   links: MenuItem[] | undefined;
+  numOfCartItems: Signal<number> = computed(() =>
+    this.cartService.cartNumber()
+  );
 
   ngOnInit() {
     this.initializeData();
@@ -64,9 +73,9 @@ export class CartComponent {
         console.log(res);
         this.cartProducts = res.data;
         this.cartService.totalCartPrice.set(res.data.totalCartPrice);
-        this.numOfCartItems.set(res.numOfCartItems);
+        this.cartService.cartNumber.set(res.numOfCartItems);
         this.getSimilarProducts();
-        this.isCartEmpty.set(true)
+        this.isCartEmpty.set(true);
       },
       error: (err) => {
         console.log(err);
@@ -94,7 +103,7 @@ export class CartComponent {
     this.cartService.updateCartQuantity(id, count).subscribe({
       next: (res) => {
         this.cartProducts = res.data;
-        this.numOfCartItems.set(res.numOfCartItems);
+        this.cartService.cartNumber.set(res.numOfCartItems);
         this.isLoading[id] = signal(false);
       },
       error: (err) => {
@@ -117,7 +126,6 @@ export class CartComponent {
         this.isLoadingRemove[id] = signal(false);
         this.cartProducts = res.data;
         this.cartService.cartNumber.set(res.numOfCartItems);
-        this.numOfCartItems.set(res.numOfCartItems);
       },
       error: (err) => {
         this.isLoadingRemove[id] = signal(false);
