@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   allProducts: IProuduct[] = [];
   wishlistList: IWishlist[] = [];
   wishlistListProduct: IProuduct[] = [];
-  titleCategory: string = '';
+  titleCategory: WritableSignal<string> = signal('');
   @ViewChild('pannerSwiper') pannerEl!: ElementRef;
   @ViewChild('categorySwiper') categoryEl!: ElementRef;
 
@@ -91,8 +91,13 @@ export class HomeComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.initializeData();
+  }
+
+  initializeData(): void {
     this.getAllCategories();
     this.getUserProductWishlist();
+    this.getCartItems();
   }
 
   categorySlider(direction: 'next' | 'prev') {
@@ -127,12 +132,12 @@ export class HomeComponent implements OnInit {
   }
 
   categoryTitle(title: string): void {
-    this.titleCategory = title;
+    this.titleCategory.set(title);
   }
 
   getFilteredProducts(): IProuduct[] {
     return this.allProducts.filter(
-      (product) => product.category.name === this.titleCategory
+      (product) => product.category.name === this.titleCategory()
     );
   }
 
@@ -173,9 +178,10 @@ export class HomeComponent implements OnInit {
         this.wishlistService.wishlist.set(
           res.data.map((item: any) => item._id)
         );
+        this.wishlistService.wishListNumber.set(res.count);
         this.getAllProduct();
       },
-      error: (err) => console.log(err),
+      error: (err) => console.log('Error in fetching Wishlist', err),
     });
   }
 
@@ -187,7 +193,17 @@ export class HomeComponent implements OnInit {
           this.wishlistService.wishlistListIds().includes(prod._id)
         );
       },
-      error: (err) => console.log(err),
+      error: (err) => console.log('Error in eftching all ptoduct', err),
+    });
+  }
+
+  getCartItems(): void {
+    this.cartService.getLoggedUserCart().subscribe({
+      next: (res) => {
+        console.log('carT Number', res.numOfCartItems);
+        this.cartService.cartNumber.set(res.numOfCartItems);
+      },
+      error: (err) => console.log('Error in fetching Cart', err),
     });
   }
 }

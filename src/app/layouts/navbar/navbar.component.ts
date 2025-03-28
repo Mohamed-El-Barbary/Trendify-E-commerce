@@ -68,6 +68,7 @@ export class NavbarComponent implements OnInit {
   successeded: WritableSignal<string> = signal('');
   visible: boolean = false;
   items: MenuItem[] | undefined;
+  itemsAuth: MenuItem[] | undefined;
   navlinks: WritableSignal<boolean> = signal(false);
   isScrolled: WritableSignal<boolean> = signal(false);
   countCartNumber: Signal<number> = computed(() =>
@@ -82,53 +83,47 @@ export class NavbarComponent implements OnInit {
   }
 
   initializeData(): void {
-    this.items = [
+    (this.itemsAuth = [
       {
-        label: 'Profile',
-        items: [
-          {
-            label: 'Update User Info',
-            icon: 'pi pi-cog',
-            shortcut: '⌘+O',
-            command: () => this.showDialog(),
-          },
-          {
-            label: 'Orders',
-            icon: 'pi pi-inbox',
-            routerLink: ['allorders'],
-          },
-          {
-            label: 'Logout',
-            icon: 'pi pi-sign-out',
-            shortcut: '⌘+Q',
-            command: () => this.authService.logOut(),
-          },
-        ],
+        label: 'Sign Up',
+        icon: 'pi pi-sign-in',
+        shortcut: '⌘+Q',
+        routerLink: '/signin',
       },
-    ];
+      {
+        label: 'Login',
+        icon: 'pi pi-sign-in',
+        shortcut: '⌘+Q',
+        routerLink: '/login',
+      },
+    ]),
+      (this.items = [
+        {
+          label: 'Profile',
+          items: [
+            {
+              label: 'Update User Info',
+              icon: 'pi pi-cog',
+              shortcut: '⌘+O',
+              command: () => this.showDialog(),
+            },
+            {
+              label: 'Orders',
+              icon: 'pi pi-inbox',
+              routerLink: ['allorders'],
+            },
+            {
+              label: 'Logout',
+              icon: 'pi pi-sign-out',
+              shortcut: '⌘+Q',
+              command: () => this.authService.logOut(),
+            },
+          ],
+        },
+      ]);
     this.router.events.subscribe(() => {
       this.changeHomeColor(this.router.url);
       console.log(this.router.url);
-    });
-
-    this.cartService.getLoggedUserCart().subscribe({
-      next: (res) => {
-        console.log('carT Number',res.numOfCartItems);
-        this.cartService.cartNumber.set(res.numOfCartItems);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-
-    this.wishlistService.getLoggedUserWishlist().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.wishlistService.wishListNumber.set(res.count);
-      },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
 

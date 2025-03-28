@@ -4,7 +4,7 @@
   }"
   class="bg-transparent shadow-sm fixed w-full z-[999999]"
 >
-  <div class="container max-w-7xl px-8 2xl:px-0 relative">
+  <div class="container max-w-7xl px-4 sm:px-8 2xl:px-0 relative">
     <div
       class="nav-parent flex flex-wrap items-center justify-between mx-auto py-5 relative"
     >
@@ -116,7 +116,7 @@
         class="icons order-1 flex flex-col p-4 md:p-0 rounded-lg md:mt-0 md:border-0 relative"
       >
         <p-menu #menu [model]="items" [popup]="true" />
-        <ul class="changed-class font-medium flex gap-4 md:gap-6">
+        <ul class="changed-class font-medium flex gap-2 sm:gap-4 md:gap-6">
           @if (isLogin()) {
           <li>
             <a
@@ -157,24 +157,38 @@
             </a>
           </li>
           } @if (!isLogin()) {
-          <li>
-            <a
-              routerLink="/login"
+          <ul class="auth-links hidden sm:flex gap-2">
+            <li>
+              <a
+                routerLink="/login"
+                role="button"
+                class="px-6 py-2 border border-[#81562C] text-[#81562C] rounded-full"
+              >
+                Login
+              </a>
+            </li>
+            <li>
+              <a
+                routerLink="/signin"
+                role="button"
+                class="px-6 py-2 bg-[#81562C] text-white rounded-full"
+              >
+                Sign Up
+              </a>
+            </li>
+          </ul>
+          <ul class="auth-links-icon flex sm:hidden gap-2 relative">
+            <p-menu #menu [model]="itemsAuth" [popup]="true" />
+            <li
+              class="flex gap-2 items-center text-second-text"
               role="button"
-              class="px-6 py-2 border border-[#81562C] text-[#81562C] rounded-full"
+              aria-label="auth"
+              (click)="menu.toggle($event)"
             >
-              Login
-            </a>
-          </li>
-          <li>
-            <a
-              routerLink="/signin"
-              role="button"
-              class="px-6 py-2 bg-[#81562C] text-white rounded-full"
-            >
-              Sign Up
-            </a>
-          </li>
+              <i class="fa fa-user"></i>
+              <span class="font-medium text-lg">Auth</span>
+            </li>
+          </ul>
           }
         </ul>
       </div>

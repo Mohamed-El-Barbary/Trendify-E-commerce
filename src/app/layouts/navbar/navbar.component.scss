@@ -1,15 +1,3 @@
-/* nav {
-  @media (min-width: 768px) and (max-width: 900px) {
-    .nav-parent {
-      flex-direction: column;
-      gap: 16px;
-    }
-    .nav-links {
-      gap: 0.625rem;
-    }
-  }
-} */
-
 nav {
   @media (min-width: 992px) {
     .nav-links {
@@ -54,10 +42,17 @@ nav {
     }
   }
 }
-:host ::ng-deep .p-menu-overlay {
+:host ::ng-deep .icons .p-menu-overlay {
   top: 101% !important;
   left: unset !important;
   right: 45px !important
+  ;
+}
+
+:host ::ng-deep .auth-links-icon .p-menu-overlay {
+  top: 150% !important;
+  left: unset !important;
+  right: 0 !important
   ;
 }
 
