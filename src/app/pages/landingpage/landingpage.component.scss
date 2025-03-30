@@ -1,61 +1,40 @@
 @use "@angular/material" as mat;
 
-.taps-sec {
-  .mat-mdc-tab-label-container {
-    justify-content: center !important;
+.nav-tabs {
+  .p-tab-active {
+    background-color: var(--main-color) !important;
     border: unset !important;
+    border-radius: 9999999px;
   }
 
-  .mat-mdc-tab-labels {
-    background-color: #eee !important;
-    border-radius: 50px;
+  .p-tablist-tab-list {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: fit-content !important;
+    margin: auto;
+    padding: 10px 20px !important;
+    border-radius: 99999999px;
+    border-style: unset !important;
+    background: #eee !important;
+    border-color: unset !important;
+    border-width: unset !important;
   }
 
-  .mdc-tab {
-    padding: 0 !important;
-    min-width: 0 !important;
-  }
-
-  .mat-mdc-tab {
-    height: unset !important;
-  }
-
-  .mat-mdc-tab-list {
-    flex-grow: 0 !important;
-  }
-
-  .mdc-tab-indicator {
+  .p-tablist-active-bar {
     display: none !important;
   }
 
-  .mdc-tab__text-label {
-    color: var(--second-text) !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
-    text-transform: capitalize !important;
-    padding: 12px 25px !important;
-    transition: unset !important;
+  .p-tab {
+    color: #9d9daa !important;
+    padding: 10px 25px !important;
+    border-radius: 9999999px;
+    font-size: 18px;
+    font-weight: 500;
   }
 
-  .mdc-tab--active {
-    color: #fff !important;
-  }
-
-  .mdc-tab--active .mdc-tab__text-label {
-    color: #fff !important;
-  }
-
-  .mdc-tab-indicator--active {
-    background-color: var(--main-color) !important;
-    border-radius: 99999px;
-  }
-
-  .mat-mdc-tab-ripple,
-  .mat-ripple {
-    border-radius: 50px;
-  }
-  .mat-mdc-tab-body-content {
-    overflow: hidden !important;
+  .p-tab.p-tab-active {
+    color: white !important;
   }
 }
 

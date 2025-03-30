@@ -12,7 +12,6 @@ import {
 } from '@angular/core';
 import { CategoryService } from '../../core/services/category/category.service';
 import { ICategory } from '../../shared/interfaces/icategory';
-import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductService } from '../../core/services/product/product.service';
@@ -27,7 +26,6 @@ import { IWishlist } from '../../shared/interfaces/iwishlist';
 @Component({
   selector: 'app-home',
   imports: [
-    MatTabsModule,
     CommonModule,
     CarouselModule,
     RouterLink,

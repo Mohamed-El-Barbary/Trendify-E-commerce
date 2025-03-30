@@ -8,10 +8,12 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TabsModule } from 'primeng/tabs';
+
 
 @Component({
   selector: 'app-landingpage',
-  imports: [MatTabsModule, CommonModule, CarouselModule],
+  imports: [TabsModule, CommonModule, CarouselModule],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss',
   encapsulation: ViewEncapsulation.None,

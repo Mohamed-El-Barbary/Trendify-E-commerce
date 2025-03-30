@@ -8,19 +8,20 @@
         class="w-full md:w-10/12 lg:w-1/2 relative max-w-screen-2xl order-2 lg:order-1"
       >
         <div class="main-title relative">
-          <h1 class="text-[50px] font-medium text-text-color">
-            Elevate Your Style with <br />
-            The Latest Trends.
+          <h1
+            class="text-[35px] sm:text-[50px] font-semibold mb-4 relative max-w-[550px]"
+          >
+            Elevate Your Style with The Latest Trends.
           </h1>
           <div class="arrow">
             <img
               src="/images/arrow25.png"
-              class="absolute w-[225px] rotate-[1deg] font-bold -bottom-3 left-[145px]"
+              class="absolute w-[225px] rotate-[1deg] font-bold -bottom-4 sm:-bottom-3 left-0 sm:left-[145px]"
               alt=""
             />
           </div>
         </div>
-        <p class="mt-4 text-second-text text-lg max-w-[650px]">
+        <p class="mt-4 text-second-text text-base sm:text-lg max-w-[650px]">
           Explore a curated collection of stylish, affordable fashion designed
           to elevate your wardrobe. Discover the perfect blend of trend,
           comfort, and individuality for your look.
@@ -31,7 +32,7 @@
         <div class="trangle-icon">
           <img
             src="/images/trangle1.svg"
-            class="!text-main-color absolute -bottom-24 right-7"
+            class="!text-main-color absolute bottom-2 sm:-bottom-24 right-2 sm:right-7"
             alt=""
           />
         </div>
@@ -51,7 +52,7 @@
         <div class="trangle-icon">
           <img
             src="./images/trangle1.svg"
-            class="text-gray-800 absolute -top-[60px] right-52"
+            class="text-gray-800 absolute -top-[80px] sm:-top-[60px] right-52"
             alt=""
           />
         </div>
@@ -116,364 +117,375 @@
     </section>
   </section>
 
-  <section class="taps-sec max-w-7xl mx-auto py-20">
-    <mat-tab-group>
-      <mat-tab label="all">
-        <div
-          (click)="toastrshow()"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
-        >
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/fullOutfit.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
+  <section class="nav-tabs max-w-7xl mx-auto py-20">
+    <p-tabs value="0">
+      <p-tablist
+        class="row-tabs !overflow-x-auto !scrollbar-hide !whitespace-nowrap"
+      >
+        <p-tab value="0">all</p-tab>
+        <p-tab value="1">skirts</p-tab>
+        <p-tab value="2">bags</p-tab>
+        <p-tab value="3">full-oufit</p-tab>
+        <p-tab value="4">Accessories</p-tab>
+      </p-tablist>
+      <p-tabpanels class="product-panels !bg-bg-color">
+        <p-tabpanel value="0">
+          <div
+            (click)="toastrshow()"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+          >
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/fullOutfit.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
+                <span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
+                >
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  >
+                  <span class="text-second-color text-xs">(500+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  5000
+                  <span class="line-through text-second-text">1000 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
               </div>
             </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/skirt.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
                 <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
                 >
-                <span class="text-second-color text-xs">(500+)</span>
-              </p>
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  >
+                  <span class="text-second-color text-xs">(500+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  800
+                  <span class="line-through text-second-text">400 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
+              </div>
             </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                5000
-                <span class="line-through text-second-text">1000 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/Bags.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
+                <span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
+                >
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.6</span
+                  >
+                  <span class="text-second-color text-xs">(200+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  300
+                  <span class="line-through text-second-text">600 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/Accessories.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
+                <span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
+                >
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  >
+                  <span class="text-second-color text-xs">(500+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  15000
+                  <span class="line-through text-second-text">2000 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/skirt.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
+        </p-tabpanel>
+        <p-tabpanel value="1">
+          <div
+            (click)="toastrshow()"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+          >
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/skirt.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
                 <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
                 >
-                <span class="text-second-color text-xs">(500+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                800
-                <span class="line-through text-second-text">400 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  >
+                  <span class="text-second-color text-xs">(500+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  800
+                  <span class="line-through text-second-text">400 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/Bags.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
+        </p-tabpanel>
+        <p-tabpanel value="2">
+          <div
+            (click)="toastrshow()"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+          >
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/Bags.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
                 <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.6</span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
                 >
-                <span class="text-second-color text-xs">(200+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                300
-                <span class="line-through text-second-text">600 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.6</span
+                  >
+                  <span class="text-second-color text-xs">(200+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  300
+                  <span class="line-through text-second-text">600 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/Accessories.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
+        </p-tabpanel>
+        <p-tabpanel value="3">
+          <div
+            (click)="toastrshow()"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+          >
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/fullOutfit.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
                 <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
                 >
-                <span class="text-second-color text-xs">(500+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                15000
-                <span class="line-through text-second-text">2000 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  >
+                  <span class="text-second-color text-xs">(500+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  5000
+                  <span class="line-through text-second-text">1000 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="skirts">
-        <div
-          (click)="toastrshow()"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-4 px-2 mt-10"
-        >
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/skirt.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
+        </p-tabpanel>
+        <p-tabpanel value="4">
+          <div
+            (click)="toastrshow()"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 lg:px-0 mt-10"
+          >
+            <div class="bg-white p-2 rounded-2xl shadow-md">
+              <div class="image relative">
+                <img
+                  src="./images/Accessories.png"
+                  alt="Full Outfit"
+                  class="rounded-xl w-full"
+                />
                 <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
+                  >-50 %</span
                 >
-                <span class="text-second-color text-xs">(500+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                800
-                <span class="line-through text-second-text">400 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
+                <div
+                  class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
+                >
+                  <i class="fa-regular fa-heart text-main-color"></i>
+                </div>
+              </div>
+              <div class="crat-body mb-2 p-1">
+                <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
+                  Full Outfit
+                </h3>
+                <p class="text-sm text-text-color flex gap-2 items-center">
+                  <span
+                    ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
+                  >
+                  <span class="text-second-color text-xs">(500+)</span>
+                </p>
+              </div>
+              <div class="cart-footer flex items-center relative p-1 pb-4">
+                <p class="font-bold text-main-color text-xl">
+                  15000
+                  <span class="line-through text-second-text">2000 EGP</span>
+                </p>
+                <div class="absolute right-0 text-3xl p-2">
+                  <i
+                    class="fa-solid fa-square-plus text-main-color rounded-lg"
+                  ></i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="bags">
-        <div
-          (click)="toastrshow()"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
-        >
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/Bags.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
-                <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.6</span
-                >
-                <span class="text-second-color text-xs">(200+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                300
-                <span class="line-through text-second-text">600 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="full-oufit">
-        <div
-          (click)="toastrshow()"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
-        >
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/fullOutfit.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
-                <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
-                >
-                <span class="text-second-color text-xs">(500+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                5000
-                <span class="line-through text-second-text">1000 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="Accessories">
-        <div
-          (click)="toastrshow()"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 mt-10"
-        >
-          <div class="bg-white p-2 rounded-2xl shadow-md">
-            <div class="image relative">
-              <img
-                src="./images/Accessories.png"
-                alt="Full Outfit"
-                class="rounded-xl w-full"
-              />
-              <span
-                class="absolute bottom-3 left-2 bg-main-color text-white px-3 py-1 text-xl font-semibold"
-                >-50 %</span
-              >
-              <div
-                class="absolute flex items-center justify-center top-3 right-3 text-2xl w-[40px] h-[40px] bg-white rounded-full"
-              >
-                <i class="fa-regular fa-heart text-main-color"></i>
-              </div>
-            </div>
-            <div class="crat-body mb-2 p-1">
-              <h3 class="text-2xl font-medium text-text-color mt-3 mb-1">
-                Full Outfit
-              </h3>
-              <p class="text-sm text-text-color flex gap-2 items-center">
-                <span
-                  ><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span
-                >
-                <span class="text-second-color text-xs">(500+)</span>
-              </p>
-            </div>
-            <div class="cart-footer flex items-center relative p-1 pb-4">
-              <p class="font-bold text-main-color text-xl">
-                15000
-                <span class="line-through text-second-text">2000 EGP</span>
-              </p>
-              <div class="absolute right-0 text-3xl p-2">
-                <i
-                  class="fa-solid fa-square-plus text-main-color rounded-lg"
-                ></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
 
     <button
       (click)="toastrshow()"

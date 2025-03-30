@@ -19,10 +19,12 @@ import { AuthService } from '../../core/services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+
 
 @Component({
   selector: 'app-sign-up',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink , ScrollPanelModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
