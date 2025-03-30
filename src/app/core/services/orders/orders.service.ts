@@ -21,9 +21,7 @@ export class OrdersService {
   }
   
   createOnlineOrder(id:string , data:object):Observable<any>{
-    return this.httpClient.post(`${environment.baseUrl}/api/v1/orders/checkout-session/${id}?url=http://localhost:4200`
-          // rng serve --proxy-config proxy.conf.jsoneturn this.httpClient.post(`${environment.baseUrl}/api/v1/orders/checkout-session/${id}?url=https://trendify-e-commerce-blond.vercel.app/` 
-            , 
+    return this.httpClient.post(`${environment.baseUrl}/api/v1/orders/checkout-session/${id}?url=https://trendify-e-commerce-blond.vercel.app/`, 
       {
         "shippingAddress" : data 
       }
