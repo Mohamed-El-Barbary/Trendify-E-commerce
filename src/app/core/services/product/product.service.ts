@@ -11,14 +11,12 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
   getProducts(): Observable<any> {
-    return this.httpClient.get(this.apiUrl);
+    return this.httpClient.get(`${this.apiUrl}.json`);
   }
 
-
-getSpecificShopifyProduct(productId: string): Observable<any> {
-  return this.httpClient.get(`/api/products/${productId}.json`);
-}
-
+  getSpecificShopifyProduct(productId: string): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${productId}.json`);
+  }
 
   getAllProducts(): Observable<any> {
     return this.httpClient.get(`${environment.baseUrl}/api/v1/products`);
