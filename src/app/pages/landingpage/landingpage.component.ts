@@ -5,11 +5,11 @@ import {
   Component,
   HostListener,
   inject,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabsModule } from 'primeng/tabs';
-
 
 @Component({
   selector: 'app-landingpage',
@@ -18,7 +18,7 @@ import { TabsModule } from 'primeng/tabs';
   styleUrl: './landingpage.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class LandingpageComponent {
+export class LandingpageComponent implements OnInit {
   private readonly toastrService = inject(ToastrService);
 
   customOptions: OwlOptions = {
@@ -48,6 +48,19 @@ export class LandingpageComponent {
       },
     },
   };
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.toastrService.error(
+        'Please log in first to unlock the full experience!',
+        'Access Denied',
+        {
+          positionClass: 'toast-top-center',
+          timeOut: 60000,
+        }
+      );
+    }, 5000);
+  }
 
   toastrshow() {
     console.log('hallo');
