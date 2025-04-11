@@ -18,19 +18,12 @@ import { AccordionModule } from 'primeng/accordion';
 import { CategoryService } from '../../core/services/category/category.service';
 import { ProductService } from '../../core/services/product/product.service';
 import { IProuduct } from '../../shared/interfaces/iprouduct';
-import { IShopify } from '../../shared/interfaces/ishopify';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { PaginatorModule } from 'primeng/paginator';
 import { CartService } from '../../core/services/cart/cart.service';
 import { MenuModule } from 'primeng/menu';
 import { WishlistService } from '../../core/services/wishlist/wishlist.service';
-
-interface PageEvent {
-  first: number;
-  rows: number;
-  page: number;
-  pageCount: number;
-}
+import { ICategory } from '../../shared/interfaces/icategory';
 
 @Component({
   selector: 'app-category',
@@ -57,23 +50,21 @@ export class CategoryComponent {
   private readonly cartService = inject(CartService);
   readonly wishlistService = inject(WishlistService);
 
-  shopifyProduct: IShopify[] = [];
   productList: IProuduct[] = [];
   paginatedProducts: IProuduct[] = [];
-  paginatedShopifyProducts: IShopify[] = [];
+  allproducts: IProuduct[] = [];
+  categoryList: ICategory[] = [];
   titleCategory: WritableSignal<string> = signal('');
   categoryCount: WritableSignal<number> = signal(0);
-  shopifyCount: WritableSignal<number> = signal(0);
   links: MenuItem[] | undefined;
   first: number = 0;
   rows: number = 12;
   totalRecords: WritableSignal<number> = signal(0);
   allTotalRecords: WritableSignal<number> = signal(0);
-  totalRecordsShopify: WritableSignal<number> = signal(0);
   filterVisible: WritableSignal<boolean> = signal(false);
   items: MenuItem[] | undefined;
+  tabValue: WritableSignal<number> = signal(0);
   productListLength: WritableSignal<number> = signal(0);
-  allproducts: IProuduct[] = [];
 
   sayHallo(): void {
     console.log('hello');
@@ -105,7 +96,14 @@ export class CategoryComponent {
     this.getAllProducts();
     this.getAllCategories();
     this.categoryTitle('All');
-    this.getShopifyProduct();
+  }
+
+  categoryTitle(title: string): void {
+    this.titleCategory.set(title);
+    console.log(title);
+    this.first = 0;
+    this.updatePaginatedProducts();
+    this.updateCategoryCount();
   }
 
   getAllProducts(): void {
@@ -129,14 +127,17 @@ export class CategoryComponent {
   }
 
   getProductListLengh(): void {
-    this.productListLength.set(this.productList.length);
+    if (this.titleCategory() === 'All') {
+      this.productListLength.set(this.productList.length);
+    } else {
+      this.productListLength.set(this.categoryCount());
+    }
   }
 
   onPageChange(event: any): void {
     this.first = event.first;
     this.rows = event.rows;
     this.updatePaginatedProducts();
-    this.updatePaginatedShopifyProducts();
     this.updatePaginatedAllProducts();
     window.scrollTo({
       top: 0,
@@ -144,31 +145,14 @@ export class CategoryComponent {
     });
   }
 
-  categoryTitle(title: string): void {
-    this.titleCategory.set(title);
-    this.first = 0;
-    this.updatePaginatedProducts();
-    this.updateCategoryCount();
-    this.shopifyCountProductOfCategory();
-    this.updatePaginatedShopifyProducts();
-  }
-
   sortProductsByPrice(price: 'high' | 'low'): void {
     const sortItemProduct = (a: IProuduct, b: IProuduct) =>
       price === 'low' ? a.price - b.price : b.price - a.price;
 
-    const sortItemShopifyProduct = (a: IShopify, b: IShopify) => {
-      const priceA = parseFloat(a.variants[0].price);
-      const priceB = parseFloat(b.variants[0].price);
-      return price === 'low' ? priceA - priceB : priceB - priceA;
-    };
-
     this.productList.sort(sortItemProduct);
     this.allproducts.sort(sortItemProduct);
-    this.shopifyProduct.sort(sortItemShopifyProduct);
     this.updatePaginatedAllProducts();
     this.updatePaginatedProducts();
-    this.updatePaginatedShopifyProducts();
   }
 
   getFilteredProducts(): IProuduct[] {
@@ -181,6 +165,7 @@ export class CategoryComponent {
     const filteredProducts = this.getFilteredProducts();
     this.categoryCount.set(filteredProducts.length);
     this.totalRecords.update(() => filteredProducts.length);
+    this.getProductListLengh();
   }
 
   updatePaginatedAllProducts(): void {
@@ -204,41 +189,6 @@ export class CategoryComponent {
     const start = this.first;
     const end = Math.min(start + this.rows, filteredProducts.length);
     this.paginatedProducts = filteredProducts.slice(start, end);
-  }
-
-  getShopifyProduct(): void {
-    this.productService.getProducts().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.shopifyProduct = res.products;
-        this.updatePaginatedShopifyProducts();
-      },
-      error: (err) => {
-        console.error('Error fetching Shopify products:', err);
-      },
-    });
-  }
-
-  getShopifyFilterProduct(): IShopify[] {
-    return this.shopifyProduct.filter(
-      (product) => product.product_type === this.titleCategory()
-    );
-  }
-
-  updatePaginatedShopifyProducts(): void {
-    if (!this.shopifyProduct || this.shopifyProduct.length === 0) {
-      return;
-    }
-    const filteredShopifyProducts = this.getShopifyFilterProduct();
-    const start = this.first;
-    const end = Math.min(start + this.rows, filteredShopifyProducts.length);
-    this.paginatedShopifyProducts = filteredShopifyProducts.slice(start, end);
-  }
-
-  shopifyCountProductOfCategory(): void {
-    const filteredShopifyProducts = this.getShopifyFilterProduct();
-    this.shopifyCount.set(filteredShopifyProducts.length);
-    this.totalRecordsShopify.set(filteredShopifyProducts.length);
   }
 
   getDiscountedPrice(price: any): number {
@@ -272,7 +222,9 @@ export class CategoryComponent {
   getAllCategories(): void {
     this.categoryService.getAllCategories().subscribe({
       next: (res) => {
-        console.log(res);
+        console.log('Categories:', res.data);
+        this.categoryList = res.data;
+        this.updateCategoryCount();
       },
       error: (err) => {
         console.error('Error fetching categories:', err);

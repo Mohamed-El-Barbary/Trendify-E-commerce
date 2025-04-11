@@ -10,14 +10,6 @@ export class ProductService {
   private apiUrl = '/api/products.json';
   constructor(private httpClient: HttpClient) {}
 
-  getProducts(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}.json`);
-  }
-
-  getSpecificShopifyProduct(productId: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/${productId}.json`);
-  }
-
   getAllProducts(): Observable<any> {
     return this.httpClient.get(`${environment.baseUrl}/api/v1/products`);
   }

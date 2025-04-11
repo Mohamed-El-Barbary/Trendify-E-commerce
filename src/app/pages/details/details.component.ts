@@ -95,33 +95,14 @@ export class DetailsComponent {
   updateBreadcrumb() {
     this.activatedRoute.paramMap.subscribe((params) => {
       const id = params.get('id');
-      const containsLetters = /[a-zA-Z]/.test(id!);
-      if (containsLetters) {
-        const selectedProduct = this.productList.find((p) => p.id === id);
-
+      const selectedProduct = this.productList.find((p) => p.id === id);
+      if (selectedProduct) {
         this.links = [
           { label: 'Home', route: '/home' },
           { label: 'Category', route: '/products' },
           {
             label: selectedProduct
               ? selectedProduct.category.name
-              : 'Product Not Found',
-          },
-          {
-            label: selectedProduct
-              ? selectedProduct.title.split(' ').slice(0, 3).join(' ')
-              : 'Product Not Found',
-          },
-        ];
-      } else if (!isNaN(Number(id))) {
-        const numid = Number(id); // تحويل id إلى رقم
-        const selectedProduct = this.shopifyProduct.find((p) => p.id === numid);
-        this.links = [
-          { label: 'Home', route: '/home' },
-          { label: 'Category', route: '/products' },
-          {
-            label: selectedProduct
-              ? selectedProduct.product_type
               : 'Product Not Found',
           },
           {
@@ -157,29 +138,6 @@ export class DetailsComponent {
     });
   }
 
-  getShopifyProduct(): void {
-    this.productService.getProducts().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.shopifyProduct = res.products;
-        this.productShopifyCategory = this.shopifyProduct
-          .filter(
-            (product) =>
-              product.product_type ===
-                this.productShopifyDetails?.product_type &&
-              product.id !== this.productShopifyDetails?.id
-          )
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 4);
-        console.log('Filtered Products:', this.productShopifyCategory);
-        this.updateBreadcrumb();
-      },
-      error: (err) => {
-        console.error('Error fetching Shopify products:', err);
-      },
-    });
-  }
-
   getAllProductDetails(): void {
     this.activatedRoute.paramMap.subscribe({
       next: (params) => {
@@ -200,21 +158,6 @@ export class DetailsComponent {
               console.log('Error In Product Details', err);
             },
           });
-        } else if (!isNaN(Number(id))) {
-          console.log('Error in Product Shopify Details.');
-          this.productService.getSpecificShopifyProduct(id!).subscribe({
-            next: (res) => {
-              this.productShopifyDetails = res.product;
-              this.productShopifyPrice = res.product.variants[0].price;
-              this.productShopifyCategory = res.product.product_type;
-              this.getShopifyProduct();
-            },
-            error: (err) => {
-              console.log(' API Error in Shpoify Api :', err);
-            },
-          });
-        } else {
-          console.log("ID Does'nt Exist On Api");
         }
       },
     });
