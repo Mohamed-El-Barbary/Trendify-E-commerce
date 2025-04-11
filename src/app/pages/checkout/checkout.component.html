@@ -243,6 +243,7 @@
                   <div class="flex items-center gap-6">
                     <div class="flex gap-4 items-center">
                       <input
+                        (click)="getShipmentMethod('regular')"
                         id="free"
                         type="radio"
                         name="shipment"
@@ -266,6 +267,7 @@
                   <div class="flex items-center gap-6">
                     <div class="flex gap-4 items-center">
                       <input
+                        (click)="getShipmentMethod('priority')"
                         id="priority"
                         type="radio"
                         name="shipment"
@@ -340,7 +342,7 @@
             <span>Discount</span> <span>20%</span>
           </div>
           <div class="flex justify-between">
-            <span>Shipping</span> <span class="text-main-color">Free</span>
+            <span>Shipping</span> <span class="text-main-color">{{shipmentMethod()}}</span>
           </div>
           <div class="flex justify-between">
             <span>Coupon Applied</span> <span>0.00 EGP</span>

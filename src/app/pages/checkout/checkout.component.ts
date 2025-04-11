@@ -67,6 +67,7 @@ export class CheckoutComponent {
   estimatedEndDate: WritableSignal<string> = signal('');
   paymentMethod: WritableSignal<string> = signal('onlinePayment');
   checkLoading: WritableSignal<boolean> = signal(false);
+  shipmentMethod: WritableSignal<string> = signal('Free');
   today: Date = new Date();
   links: MenuItem[] | undefined;
 
@@ -380,6 +381,14 @@ export class CheckoutComponent {
       (address) => address._id === id
     ) as IAddress;
     console.log(this.specificAddresses);
+  }
+
+  getShipmentMethod(shipmentMethod: string): void {
+    if (shipmentMethod === 'regular') {
+      this.shipmentMethod.set('free');
+    } else {
+      this.shipmentMethod.set('100 EGP');
+    }
   }
 
   getPaymentMethod(method: string): void {
