@@ -29,7 +29,7 @@
         </button>
         <div class="rating absolute right-6 sm:right-24">
           <div class="top-rating flex gap-2">
-            <span class="text-[28px] font-bold">4.8 </span>
+            <span class="text-lg sm:text-[28px] font-bold">4.8 </span>
             <span class="flex items-center">|</span>
             <ul class="flex gap-1 items-center">
               <li><i class="fa-solid fa-star"></i></li>
@@ -39,7 +39,9 @@
               <li><i class="fa-solid fa-star-half-stroke"></i></li>
             </ul>
           </div>
-          <div class="bottom-rating text-xl">150k Total Review</div>
+          <div class="bottom-rating text-base sm:text-xl">
+            150k Total Review
+          </div>
         </div>
       </div>
     </div>
@@ -59,13 +61,16 @@
       speed="300"
     >
       @for (category of categoryList; track $index) {
-      <swiper-slide class="flex justify-center">
+      <swiper-slide class="flex justify-center flex-col items-center gap-2">
         <img
           [src]="category.image"
           class="h-[100px] w-[100px] rounded-full"
           [alt]="category.name"
           aria-label="category.name"
         />
+        <span class="text-text-color font-medium text-lg">{{
+          category.name
+        }}</span>
       </swiper-slide>
       }
     </swiper-container>
@@ -288,7 +293,7 @@
         <img
           src="/images/home-image/unsplash_mB-SwZFP1kQ.png"
           alt=""
-          class="h-[800px]  w-full rounded-3xl"
+          class="h-[800px] w-full rounded-3xl"
         />
         <div
           class="text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50"
